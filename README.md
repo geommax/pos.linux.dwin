@@ -36,7 +36,7 @@ php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/m
 
 
 
-### Step 3. browser kiosk-mode
+## Step 3. browser kiosk-mode
 
 > $ chromium --kiosk http://localhost
 
