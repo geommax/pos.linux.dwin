@@ -41,9 +41,31 @@ php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/m
 
 ### browser kiosk-mode
 
-chromium --kiosk http://localhost
+> $ chromium --kiosk http://localhost
+
+> $ nano ~/.config/lxsession/LXDE/autostart
+
+> $ chromium --kiosk http://example.com --disable-infobars --start-fullscreen
+
+### Additional Options
+You can also include more flags for customization:
+
+--start-fullscreen (force fullscreen mode).
+--disable-infobars (disable info bars).
+--incognito (private browsing).
+
+linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart 
+@lxpanel --profile LXDE
+@pcmanfm --desktop --profile LXDE
+@xscreensaver -no-splash
+@chromium --kiosk http://localhost 
 
 ### Defend input Command Shortcuts to the system
+
+
+
+### Defend Network ports and filtering firewall rules
+
 
 
 ### user can use only on browser kiosk environment.
