@@ -64,6 +64,8 @@ linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart
 
 > ~/.config/lxsession/LXDE/autostart file ထဲမှာ @chromimum --kiosk http://localhost သာထည့်ထားလိုက်တာနဲ့ရပါပြီ။
 
+##### NOTE: Openbox controls window decorations (title bar, buttons). To customize it:
+> vim ~/.config/openbox/lxde-rc.xml
 
 
 #### Step 4. Defend input Command Shortcuts to the system
@@ -99,3 +101,10 @@ The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 - 4. Ads Tunnel if device can access internet via wifi
 
 #### Step 7. Remove repository source lists
+
+#### Step 8. Printer Setup X - Printer (compile & install) (over wifi, usb)
+
+#### Step 9. Using SIM Card Module
+
+#### Step 10. Push Button Function and Hardware Structure
+
