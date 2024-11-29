@@ -60,7 +60,7 @@ linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart
 @xscreensaver -no-splash
 @chromium --kiosk http://localhost 
 
-
+> ~/.config/lxsession/LXDE/autostart file ထဲမှာ @chromimum --kiosk http://localhost သာထည့်ထားလိုက်တာနဲ့ရပါပြီ။
 
 ### Defend input Command Shortcuts to the system
 
