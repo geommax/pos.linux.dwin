@@ -43,7 +43,7 @@ php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/m
 
 > $ chromium --kiosk http://localhost
 
-> $ nano ~/.config/lxsession/LXDE/autostart
+> $ vim ~/.config/lxsession/LXDE/autostart
 
 > $ chromium --kiosk http://example.com --disable-infobars --start-fullscreen
 
@@ -60,9 +60,18 @@ linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart
 @xscreensaver -no-splash
 @chromium --kiosk http://localhost 
 
+
+
 ### Defend input Command Shortcuts to the system
 
+1. Edit Openbox Configuration
+The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 
+> vim ~/.config/openbox/lxde-rc.xml
+
+2. If the file does not exist, check in the global configuration:
+
+> sudo vim /etc/xdg/openbox/lxde-rc.xml
 
 ### Defend Network ports and filtering firewall rules
 
