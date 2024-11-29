@@ -1,9 +1,9 @@
 # pos.linux.dwin
-## ABOUT : config parameters and automated script for debian 10 - LXDE 
+#### ABOUT : config parameters and automated script for debian 10 - LXDE 
 
-#### Step 1. install necessary apache2 and maridb from the manual pdf file
+## Step 1. install necessary apache2 and maridb from the manual pdf file
 
-#### Step 2. installing php 8.3 for arm64 
+## Step 2. installing php 8.3 for arm64 
 
 https://github.com/oerdnj/deb.sury.org/issues/2220
 https://github.com/oerdnj/deb.sury.org/issues/2176
@@ -36,7 +36,7 @@ php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/m
 
 
 
-#### Step 3. browser kiosk-mode
+### Step 3. browser kiosk-mode
 
 > $ chromium --kiosk http://localhost
 
@@ -44,7 +44,7 @@ php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/m
 
 > $ chromium --kiosk http://example.com --disable-infobars --start-fullscreen
 
-###### Additional Options
+##### Additional Options
 You can also include more flags for customization:
 
 --start-fullscreen (force fullscreen mode).
@@ -64,11 +64,11 @@ linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart
 
 > ~/.config/lxsession/LXDE/autostart file ထဲမှာ @chromimum --kiosk http://localhost သာထည့်ထားလိုက်တာနဲ့ရပါပြီ။
 
-##### NOTE: Openbox controls window decorations (title bar, buttons). To customize it:
+#### NOTE: Openbox controls window decorations (title bar, buttons). To customize it:
 > vim ~/.config/openbox/lxde-rc.xml
 
 
-#### Step 4. Defend input Command Shortcuts to the system
+## Step 4. Defend input Command Shortcuts to the system
 
 1. Edit Openbox Configuration
 The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
@@ -85,13 +85,13 @@ The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 
 - power ပိတ်ဖို့အတွက်ပဲ ဘယ်နားပိတ်ရမလဲ မသိပါ။
 
-#### Step 5. Defend Network ports and filtering firewall rules
+## Step 5. Defend Network ports and filtering firewall rules
 
 - do not expose port 80, database ports. 
 
 - bind TCP/22 for ethernet adapter only with specific IP configuration
 
-#### Step 6. user can use only on browser kiosk environment.
+## Step 6. user can use only on browser kiosk environment.
 
 > Features Requirements on WEB UI.
 
@@ -100,11 +100,11 @@ The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 - 3. wifi connection web UI
 - 4. Ads Tunnel if device can access internet via wifi
 
-#### Step 7. Remove repository source lists
+## Step 7. Remove repository source lists
 
-#### Step 8. Printer Setup X - Printer (compile & install) (over wifi, usb)
+## Step 8. Printer Setup X - Printer (compile & install) (over wifi, usb)
 
-#### Step 9. Using SIM Card Module
+## Step 9. Using SIM Card Module
 
-#### Step 10. Push Button Function and Hardware Structure
+## Step 10. Push Button Function and Hardware Structure
 
