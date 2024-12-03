@@ -91,6 +91,8 @@ The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 
 - bind TCP/22 for ethernet adapter only with specific IP configuration
 
+- host ID နှစ်လုံးပဲရမယ့် subnet ကိုတွက်ပေးပါ။
+
 ## Step 6. user can use only on browser kiosk environment.
 
 > Features Requirements on WEB UI.
@@ -103,6 +105,24 @@ The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 ## Step 7. Remove repository source lists
 
 ## Step 8. Printer Setup X - Printer (compile & install) (over wifi, usb)
+
+https://www.xprintertech.com/pos-80-printer-intallation-tutorial-video-on-linux-system-of-ubuntu-version
+
+https://www.alibaba.com/product-detail/XP-T80Q-80mm-Thermal-Receipt-Printers_1600871634631.html
+
+
+Printer_POS-80
+Printer_POS-80 (Idle, Accepting Jobs, Not Shared)
+
+Maintenance
+ 
+Administration
+Description:	Printer POS-80
+Location:	counter
+Driver:	XP-80 (grayscale)
+Connection:	usb://Printer/POS-80
+Defaults:	job-sheets=none, none media=custom_71.97x209.9mm_71.97x209.9mm sides=one-sided
+
 
 ## Step 9. Using SIM Card Module
 
