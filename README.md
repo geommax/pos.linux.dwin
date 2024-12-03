@@ -95,12 +95,13 @@ The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 
 ## Step 6. user can use only on browser kiosk environment.
 
-> Features Requirements on WEB UI.
+> Core Requirements
 
 - 1. battery status
 - 2. poweroff button
 - 3. wifi connection web UI
 - 4. Ads Tunnel if device can access internet via wifi
+- 5. wifi connection management application (linux aarch64)
 
 ## Step 7. Remove repository source lists
 
@@ -110,7 +111,7 @@ https://www.xprintertech.com/pos-80-printer-intallation-tutorial-video-on-linux-
 
 https://www.alibaba.com/product-detail/XP-T80Q-80mm-Thermal-Receipt-Printers_1600871634631.html
 
-
+#### ON AMD64 
 Printer_POS-80
 Printer_POS-80 (Idle, Accepting Jobs, Not Shared)
 
@@ -122,6 +123,33 @@ Location:	counter
 Driver:	XP-80 (grayscale)
 Connection:	usb://Printer/POS-80
 Defaults:	job-sheets=none, none media=custom_71.97x209.9mm_71.97x209.9mm sides=one-sided
+> =-=-=-=-=-=-=-=-=-
+#### ON AARCH64
+linlin@linaro-alip:~$ sudo dpkg -i printer-driver-xprinter_3.13.3_all.deb 
+(Reading database ... 85163 files and directories currently installed.)
+Preparing to unpack printer-driver-xprinter_3.13.3_all.deb ...
+Unpacking printer-driver-xprinter (3.13.3) over (3.13.3) ...
+Setting up printer-driver-xprinter (3.13.3) ...
+CPU_BITS: 64
+SYS_NAME: Linux
+CPU_ARCH: aarch64
+USB device 0x2D37 already configured!
+USB device 0x2D84 already configured!
+Driver success installed!
+Please navigate to http://localhost:631/ for manage your printers.
+> =-=-=-=-=-=-=-=-=-
+
+##### how to check /dev lists for POS 80 printer?
+> dmesg | grep -i usb
+
+> dmesg -w
+
+> ဒီလိုမျိုး ရှိနိုင်တယ်။ /dev/usb/lp0
+
+
+
+
+
 
 
 ## Step 9. Using SIM Card Module
