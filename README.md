@@ -223,6 +223,7 @@ bot@bot-Vostro-14-3468:~/pos.linux.dwin$
 
 #### Step 8.7 - PPD File is here 
 
+```output
 bot@bot-Vostro-14-3468:/usr/share/cups/model$ cd XP/
 bot@bot-Vostro-14-3468:/usr/share/cups/model/XP$ ls
 XP-80.ppd
