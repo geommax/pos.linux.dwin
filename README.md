@@ -253,6 +253,17 @@ bot@bot-Vostro-14-3468:/usr/share/cups/model/xprinter$ ls
  XP-233Q.ppd    XP-323B.ppd      XP-D3604B.ppd   'XP-DT108B LABEL.ppd'   XP-P3302E.ppd   XP-T201F.ppd    XP-T41003E.ppd   XP-T81.ppd
 ```
 
+```
+Modify Printer
+Modify LDF-POS
+Description:	ETH
+Location:	
+Connection:	socket://192.168.123.100:9100
+Sharing:	Do Not Share This Printer
+Make:	_XprinterAuto 
+Model:	Current Driver - XP-T81_XprinterAuto 
+```
+
 ## Step 9. Using SIM Card Module
 
 ## Step 10. Push Button Function and Hardware Structure
