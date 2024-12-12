@@ -75,11 +75,14 @@ $ vim ~/.config/openbox/lxde-rc.xml
 1. Edit Openbox Configuration
 The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 
-> vim ~/.config/openbox/lxde-rc.xml
+``` vim ~/.config/openbox/lxde-rc.xml
+```
 
 2. If the file does not exist, check in the global configuration:
 
-> sudo vim /etc/xdg/openbox/lxde-rc.xml
+```
+sudo vim /etc/xdg/openbox/lxde-rc.xml
+```
 
 - Solution : autostart မှာ @chromium mode နဲ့ ပဲ run မှာဖြစ်တဲ့အတွက် win + d shortcut ဝင်ရင်တောင် screen အမဲရောင်ပဲ ပေါ်နေမှာဖြစ်ပါတယ်။ ဒါကြောင့် စိတ်ပူစရာမလိုတော့ပါ။ 
 
@@ -118,15 +121,17 @@ https://www.alibaba.com/product-detail/XP-T80Q-80mm-Thermal-Receipt-Printers_160
 Printer_POS-80
 Printer_POS-80 (Idle, Accepting Jobs, Not Shared)
 
-Maintenance
- 
+##### Maintenance Purpose
+
+```
 Administration
 Description:	Printer POS-80
 Location:	counter
 Driver:	XP-80 (grayscale)
 Connection:	usb://Printer/POS-80
 Defaults:	job-sheets=none, none media=custom_71.97x209.9mm_71.97x209.9mm sides=one-sided
-> =-=-=-=-=-=-=-=-=-
+```
+
 #### Step 8.2. ON AARCH64
 ```
 linlin@linaro-alip:~$ sudo dpkg -i printer-driver-xprinter_3.13.3_all.deb 
