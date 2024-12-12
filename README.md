@@ -75,7 +75,8 @@ $ vim ~/.config/openbox/lxde-rc.xml
 1. Edit Openbox Configuration
 The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 
-``` vim ~/.config/openbox/lxde-rc.xml
+```
+vim ~/.config/openbox/lxde-rc.xml
 ```
 
 2. If the file does not exist, check in the global configuration:
