@@ -235,7 +235,7 @@ bot@bot-Vostro-14-3468:/usr/share/cups/model/xprinter$ ls
  XP-233H.ppd    XP-320B.ppd      XP-D3603B.ppd   'XP-DT108A LABEL.ppd'   XP-P3302B.ppd   XP-T201FD.ppd   XP-T41002E.ppd   XP-T81E.ppd
  XP-233Q.ppd    XP-323B.ppd      XP-D3604B.ppd   'XP-DT108B LABEL.ppd'   XP-P3302E.ppd   XP-T201F.ppd    XP-T41003E.ppd   XP-T81.ppd
 
-
+```
 
 ## Step 9. Using SIM Card Module
 
