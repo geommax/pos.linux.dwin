@@ -265,6 +265,19 @@ Model:	Current Driver - XP-80XP-80 (en)
 ```
 #### NOTE: USB နဲ့ မရပါဘူး, ETH နဲ့ ပဲ ip config ချပြီး connection ရယူလိုက်တာပါ။ USB နဲ့က လိုအပ်တဲ့ power voltage မလုံလောက်ဘူး၊ bad usb cable ဆိုပြီး kernel error message တက်တာပါ။
 
+
+```
+dmesg -w
+```
+
+```
+[ 3935.629014] usb 2-1: new high-speed USB device number 30 using ehci-platform
+[ 3937.155860] usb usb2-port1: Cannot enable. Maybe the USB cable is bad?
+[ 3938.669071] usb usb2-port1: Cannot enable. Maybe the USB cable is bad?
+[ 3938.669256] usb usb2-port1: attempt power cycle
+[ 3940.255630] usb usb2-port1: Cannot enable. Maybe the USB cable is bad?
+```
+
 ## Step 9. Using SIM Card Module
 
 ## Step 10. Push Button Function and Hardware Structure
