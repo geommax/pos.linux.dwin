@@ -111,7 +111,7 @@ https://www.xprintertech.com/pos-80-printer-intallation-tutorial-video-on-linux-
 
 https://www.alibaba.com/product-detail/XP-T80Q-80mm-Thermal-Receipt-Printers_1600871634631.html
 
-#### ON AMD64 
+#### Step 8.1. ON AMD64 
 Printer_POS-80
 Printer_POS-80 (Idle, Accepting Jobs, Not Shared)
 
@@ -124,7 +124,7 @@ Driver:	XP-80 (grayscale)
 Connection:	usb://Printer/POS-80
 Defaults:	job-sheets=none, none media=custom_71.97x209.9mm_71.97x209.9mm sides=one-sided
 > =-=-=-=-=-=-=-=-=-
-#### ON AARCH64
+#### Step 8.2. ON AARCH64
 linlin@linaro-alip:~$ sudo dpkg -i printer-driver-xprinter_3.13.3_all.deb 
 (Reading database ... 85163 files and directories currently installed.)
 Preparing to unpack printer-driver-xprinter_3.13.3_all.deb ...
@@ -139,7 +139,7 @@ Driver success installed!
 Please navigate to http://localhost:631/ for manage your printers.
 > =-=-=-=-=-=-=-=-=-
 
-##### how to check /dev lists for POS 80 printer?
+##### Step 8.3. how to check /dev lists for POS 80 printer?
 > dmesg | grep -i usb
 
 > dmesg -w
@@ -148,7 +148,7 @@ Please navigate to http://localhost:631/ for manage your printers.
 
 > expected kernel message output of AARCH64 $ sudo dmesg -w. 
 
-#### On Native Ubuntu Linux
+#### Step 8.4. On Native Ubuntu Linux
 
 [23492.051181] usb 1-2: Product: USB Printer Port
 [23492.051183] usb 1-2: Manufacturer: Printer
@@ -174,11 +174,65 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 bot@bot-Vostro-14-3468:~/pos.linux.dwin/Linux_Driver-Xprinter/Linux$ lsusb -d 1fc9:2016
 Bus 001 Device 007: ID 1fc9:2016 NXP Semiconductors USB Printer Port
 
-## Connection From LAN
+#### Step 8.5. Connection From LAN
 
 > XPrinter : 192.168.123.100
 
 > Computer : 192.168.123.101 . 1 (gateway)
+
+
+> socket://192.168.123.100:9100 နဲ့ cofigure လုပ်တာ အဆင်ပြေပါတယ်။ ipp, http မရသေးပါ။
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#### Step 8.6.Installation 
+
+bot@bot-Vostro-14-3468:~/pos.linux.dwin$ sudo ./XP-80 
+[sudo] password for bot: 
+Xprinter
+cupsdrv-2.4.0 installer
+---------------------------------------
+
+Models included:
+                 XP-80
+
+64
+Linux
+Searching for ServerRoot, ServerBin, and DataDir tags in /etc/cups/cupsd.conf
+
+ServerBin tag not present in cupsd.conf - using default
+
+DataDir tag not present in cupsd.conf - using default
+
+ServerRoot = 
+ServerBin  = 
+DataDir    = 
+
+
+
+11
+44
+Restarting CUPS
+Stopping cups (via systemctl): cups.service.
+Starting cups (via systemctl): cups.service.
+
+Go to http://localhost:631, or http://127.0.0.1:631 to manage your printer please!
+
+bot@bot-Vostro-14-3468:~/pos.linux.dwin$ ^C
+bot@bot-Vostro-14-3468:~/pos.linux.dwin$ 
+
+> =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+#### Step 8.7 - PPD File is here 
+
+bot@bot-Vostro-14-3468:/usr/share/cups/model$ cd XP/
+bot@bot-Vostro-14-3468:/usr/share/cups/model/XP$ ls
+XP-80.ppd
+bot@bot-Vostro-14-3468:/usr/share/cups/model/XP$ cd ..
+bot@bot-Vostro-14-3468:/usr/share/cups/model$ cd xprinter/
+bot@bot-Vostro-14-3468:/usr/share/cups/model/xprinter$ ls
+ XP-230H.ppd    XP-318BM.ppd     XP-D3601B.ppd    XP-D8502B.ppd          XP-P3301B.ppd   XP-Q374U.ppd    XP-T375U.ppd     XP-T8103E.ppd
+ XP-233B.ppd    XP-318B.ppd      XP-D3602B.ppd    XP-D8503B.ppd          XP-P3301E.ppd   XP-Q375U.ppd    XP-T41001E.ppd   XP-T81B.ppd
+ XP-233H.ppd    XP-320B.ppd      XP-D3603B.ppd   'XP-DT108A LABEL.ppd'   XP-P3302B.ppd   XP-T201FD.ppd   XP-T41002E.ppd   XP-T81E.ppd
+ XP-233Q.ppd    XP-323B.ppd      XP-D3604B.ppd   'XP-DT108B LABEL.ppd'   XP-P3302E.ppd   XP-T201F.ppd    XP-T41003E.ppd   XP-T81.ppd
 
 
 
