@@ -179,11 +179,14 @@ Bus 001 Device 002: ID 25a7:fa23 Areson Technology Corp 2.4G Receiver
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-> dpkg -l | grep cups
+```
+dpkg -l | grep cups
+```
 
-
+```
 bot@bot-Vostro-14-3468:~/pos.linux.dwin/Linux_Driver-Xprinter/Linux$ lsusb -d 1fc9:2016
 Bus 001 Device 007: ID 1fc9:2016 NXP Semiconductors USB Printer Port
+```
 
 #### Step 8.5. Connection From LAN
 
