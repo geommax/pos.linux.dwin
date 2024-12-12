@@ -124,6 +124,7 @@ https://www.alibaba.com/product-detail/XP-T80Q-80mm-Thermal-Receipt-Printers_160
 
 Printer_POS-80
 Printer_POS-80 (Idle, Accepting Jobs, Not Shared)
+Media Size: 80(72mm) * 210 mm
 
 ##### Maintenance Purpose
 
@@ -253,7 +254,7 @@ bot@bot-Vostro-14-3468:/usr/share/cups/model/xprinter$ ls
  XP-233Q.ppd    XP-323B.ppd      XP-D3604B.ppd   'XP-DT108B LABEL.ppd'   XP-P3302E.ppd   XP-T201F.ppd    XP-T41003E.ppd   XP-T81.ppd
 ```
 
-## Solution using LPD/LPR Host or Printer via socket protocol
+#### Step 8.8 - Solution using Socket Protocol
 
 ```
 Description:	ETH
@@ -278,7 +279,59 @@ dmesg -w
 [ 3940.255630] usb usb2-port1: Cannot enable. Maybe the USB cable is bad?
 ```
 
-## Step 9. Using SIM Card Module
+## Step 9. On PROD DWIN LCD
 
-## Step 10. Push Button Function and Hardware Structure
+#### Step 9.1 - Install XP-80 Printer & check 
+```
+linaro@linaro-alip:~$ sudo ./XP-80 
+Xprinter
+cupsdrv-2.4.0 installer
+---------------------------------------
+
+Models included:
+                 XP-80
+
+64
+Linux
+Searching for ServerRoot, ServerBin, and DataDir tags in /etc/cups/cupsd.conf
+
+ServerBin tag not present in cupsd.conf - using default
+
+DataDir tag not present in cupsd.conf - using default
+
+ServerRoot = 
+ServerBin  = 
+DataDir    = 
+
+
+
+11
+44
+Restarting CUPS
+[ ok ] Stopping cups (via systemctl): cups.service.
+[ ok ] Starting cups (via systemctl): cups.service.
+
+Go to http://localhost:631, or http://127.0.0.1:631 to manage your printer please!
+```
+
+#### Step 9.2 - Check Printer ppd file is exists.
+```
+linaro@linaro-alip:~$ ls /usr/share/cups/model/
+XP  xprinter
+linaro@linaro-alip:~$ ls /usr/share/cups/model/XP/
+XP-80.ppd
+linaro@linaro-alip:~$ 
+```
+
+#### Step 9.3 - Configure CUPS configuration as the same steps as Step 8.8. Done...
+
+modify Printer configuration
+
+```
+http://localhost:631/printers/POS-80
+```
+
+## Step 10. Using SIM Card Module
+
+## Step 11. Push Button Function and Hardware Structure
 
