@@ -253,16 +253,17 @@ bot@bot-Vostro-14-3468:/usr/share/cups/model/xprinter$ ls
  XP-233Q.ppd    XP-323B.ppd      XP-D3604B.ppd   'XP-DT108B LABEL.ppd'   XP-P3302E.ppd   XP-T201F.ppd    XP-T41003E.ppd   XP-T81.ppd
 ```
 
+## Solution using LPD/LPR Host or Printer via socket protocol
+
 ```
-Modify Printer
-Modify LDF-POS
 Description:	ETH
 Location:	
 Connection:	socket://192.168.123.100:9100
 Sharing:	Do Not Share This Printer
-Make:	_XprinterAuto 
-Model:	Current Driver - XP-T81_XprinterAuto 
+Make:	XP 
+Model:	Current Driver - XP-80XP-80 (en)
 ```
+#### NOTE: USB နဲ့ မရပါဘူး, ETH နဲ့ ပဲ ip config ချပြီး connection ရယူလိုက်တာပါ။ USB နဲ့က လိုအပ်တဲ့ power voltage မလုံလောက်ဘူး၊ bad usb cable ဆိုပြီး kernel error message တက်တာပါ။
 
 ## Step 9. Using SIM Card Module
 
