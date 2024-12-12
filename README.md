@@ -41,7 +41,11 @@ php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/m
 
 ```
 $ chromium --kiosk http://localhost
+```
+```
 $ vim ~/.config/lxsession/LXDE/autostart
+```
+```
 $ chromium --kiosk http://example.com --disable-infobars --start-fullscreen
 ```
 
