@@ -45,12 +45,15 @@ $ vim ~/.config/lxsession/LXDE/autostart
 $ chromium --kiosk http://example.com --disable-infobars --start-fullscreen
 ```
 
-##### Additional Options
+#### Additional Options
 You can also include more flags for customization:
 
+```
 --start-fullscreen (force fullscreen mode).
 --disable-infobars (disable info bars).
 --incognito (private browsing).
+```
+
 ```
 linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart 
 ```
