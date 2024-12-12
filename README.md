@@ -202,9 +202,8 @@ Bus 001 Device 007: ID 1fc9:2016 NXP Semiconductors USB Printer Port
 
 > Computer : 192.168.123.101 . 1 (gateway)
 
-
 > socket://192.168.123.100:9100 နဲ့ cofigure လုပ်တာ အဆင်ပြေပါတယ်။ ipp, http မရသေးပါ။
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
 #### Step 8.6.Installation 
 ```
 bot@bot-Vostro-14-3468:~/pos.linux.dwin$ sudo ./XP-80 
