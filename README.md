@@ -118,7 +118,7 @@ sudo vim /etc/xdg/openbox/lxde-rc.xml
 
 ## Step 7. Remove repository source lists
 
-## Step 8. Printer Setup X - Printer (compile & install) (over wifi, usb)
+## Step 8. Printer Setup X - Printer (compile & install) (over eth, usb)
 
 https://www.xprintertech.com/pos-80-printer-intallation-tutorial-video-on-linux-system-of-ubuntu-version
 
@@ -334,7 +334,15 @@ modify Printer configuration
 http://localhost:631/printers/POS-80
 ```
 
-## Step 10. Using SIM Card Module
+## Step 10. Browser MM Fonts Support, Wifi Application, Logout application , Print Test From Browser not cups service.
 
-## Step 11. Push Button Function and Hardware Structure
+```
+TO DO
+
+Printer Mangement Applications
+```
+
+## Step 11. Using SIM Card Module
+
+## Step 12. Push Button Function and Hardware Structure
 
