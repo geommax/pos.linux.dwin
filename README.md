@@ -146,9 +146,39 @@ Please navigate to http://localhost:631/ for manage your printers.
 
 > ဒီလိုမျိုး ရှိနိုင်တယ်။ /dev/usb/lp0
 
+> expected kernel message output of AARCH64 $ sudo dmesg -w. 
+
+#### On Native Ubuntu Linux
+
+[23492.051181] usb 1-2: Product: USB Printer Port
+[23492.051183] usb 1-2: Manufacturer: Printer
+[23492.064856] usblp 1-2:1.0: usblp1: USB Bidirectional printer dev 6 if 0 alt 0 proto 2 vid 0x1FC9 pid 0x2016
+[23492.064903] usbcore: registered new interface driver usblp
+[23497.253646] usblp1: removed
+[23497.254803] usblp 1-2:1.0: usblp1: USB Bidirectional printer dev 6 if 0 alt 0 proto 2 vid 0x1FC9 pid 0x2016
 
 
+bot@bot-Vostro-14-3468:~/pos.linux.dwin/Linux_Driver-Xprinter/Linux$ sudo lsusb
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 005: ID 0cf3:e009 Qualcomm Atheros Communications 
+Bus 001 Device 004: ID 0bda:0129 Realtek Semiconductor Corp. RTS5129 Card Reader Controller
+Bus 001 Device 003: ID 0bda:5689 Realtek Semiconductor Corp. Integrated Webcam
+Bus 001 Device 007: ID 1fc9:2016 NXP Semiconductors USB Printer Port
+Bus 001 Device 002: ID 25a7:fa23 Areson Technology Corp 2.4G Receiver
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
+
+> dpkg -l | grep cups
+
+
+bot@bot-Vostro-14-3468:~/pos.linux.dwin/Linux_Driver-Xprinter/Linux$ lsusb -d 1fc9:2016
+Bus 001 Device 007: ID 1fc9:2016 NXP Semiconductors USB Printer Port
+
+## Connection From LAN
+
+> XPrinter : 192.168.123.100
+
+> Computer : 192.168.123.101 . 1 (gateway)
 
 
 
