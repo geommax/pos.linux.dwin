@@ -182,10 +182,13 @@ Driver success installed!
 Please navigate to http://localhost:631/ for manage your printers.
 ```
 
-##### Step 8.3. how to check /dev lists for POS 80 printer?
-> dmesg | grep -i usb
-
-> dmesg -w
+#### Step 8.3. how to check /dev lists for POS 80 printer?
+```
+dmesg | grep -i usb
+```
+```
+dmesg -w
+```
 
 > ဒီလိုမျိုး ရှိနိုင်တယ်။ /dev/usb/lp0
 
