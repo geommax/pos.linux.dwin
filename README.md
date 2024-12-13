@@ -17,6 +17,10 @@ https://drive.google.com/drive/folders/12Z0poiwLLDbzIOkSWBSGQHgCLU3OiAtO?usp=sha
 ```
 > နောက်ဆုံးမှာ maridb ကို သာ အသုံးပြုဖို့ ဆုံးဖြတ်ခဲ့သည်။
 
+```
+sudo apt install maridb
+```
+
 ## Step 2. installing php 8.3 for arm64 
 
 https://github.com/oerdnj/deb.sury.org/issues/2220
@@ -103,8 +107,9 @@ linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart
 @lxpanel --profile LXDE
 ```
 > Explaination: Restores the LXDE panel, which might include your WiFi icon and other system indicators.
-
+```
 @pcmanfm --desktop --profile LXDE
+```
 > Explaination: Restores desktop management and icons. Include this if you want to see the desktop background or use file manager shortcuts.
 ```
 @xscreensaver -no-splash
@@ -428,4 +433,4 @@ sudo update-locale LANG=my_MM.UTF-8
 
 ## Step 12. Analysis Push Button Function and Hardware Structure
 
-## Step 13. Project Manual ( LINK to new md file )
+## Step 13. Project Deployment Manual ( LINK to new md file )
