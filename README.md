@@ -86,7 +86,7 @@ Add this to ~/.config/lxsession/LXDE/autostart:
 @xset s off
 @xset -dpms
 @xset s noblank
-```Administration
+```
 #### Additional Options
 You can also include more flags for customization:
 
@@ -99,15 +99,17 @@ You can also include more flags for customization:
 ```
 linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart 
 ```
+```
 @lxpanel --profile LXDE
+```
 > Explaination: Restores the LXDE panel, which might include your WiFi icon and other system indicators.
 
 @pcmanfm --desktop --profile LXDE
 > Explaination: Restores desktop management and icons. Include this if you want to see the desktop background or use file manager shortcuts.
-
+```
 @xscreensaver -no-splash
 @chromium --kiosk http://localhost 
-
+```
 > ~/.config/lxsession/LXDE/autostart file ထဲမှာ @chromimum --kiosk http://localhost သာထည့်ထားလိုက်တာနဲ့ရပါပြီ။
 
 #### NOTE: Openbox controls window decorations (title bar, buttons). To customize it:
@@ -285,7 +287,7 @@ bot@bot-Vostro-14-3468:~/pos.linux.dwin$
 
 #### Step 8.7 - PPD File is here 
 
-```output
+```
 bot@bot-Vostro-14-3468:/usr/share/cups/model$ cd XP/
 bot@bot-Vostro-14-3468:/usr/share/cups/model/XP$ ls
 XP-80.ppd
