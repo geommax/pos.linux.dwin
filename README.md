@@ -1,7 +1,21 @@
 # pos.linux.dwin
-#### ABOUT : config parameters and automated script for debian 10 - LXDE 
+> ABOUT : config parameters and automated script for debian 10 - LXDE "Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board"
 
-## Step 1. install necessary apache2 and maridb from the manual pdf file
+## Step 1. install necessary apache2 and MySQL 8.4 LTS Servers 
+
+NOTE: URL 
+```
+https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ubuntu
+```
+```
+sudo apt install apache2
+```
+https://dev.mysql.com/
+https://downloads.mysql.com/archives/community/
+```
+https://drive.google.com/drive/folders/12Z0poiwLLDbzIOkSWBSGQHgCLU3OiAtO?usp=sharing
+```
+> နောက်ဆုံးမှာ maridb ကို သာ အသုံးပြုဖို့ ဆုံးဖြတ်ခဲ့သည်။
 
 ## Step 2. installing php 8.3 for arm64 
 
@@ -72,8 +86,7 @@ Add this to ~/.config/lxsession/LXDE/autostart:
 @xset s off
 @xset -dpms
 @xset s noblank
-```
-
+```Administration
 #### Additional Options
 You can also include more flags for customization:
 
@@ -367,6 +380,8 @@ http://localhost:631/printers/POS-80
 
 ### Step 10.1 Printer Mangement Applications
 
+> Browser မှာ Printing From System Dialog ဖွင့်ပြီး print ထုတ်ရင်တော့ရပါတယ်။ (Ctl + Shift + p)
+
 
 ### Step 10.2 Wifi Application
 
@@ -390,7 +405,7 @@ sudo apt install fonts-noto fonts-noto-cjk fonts-noto-color-emoji
 sudo apt install fonts-padauk
 ```
 ```
-Repo ထဲက Paduk-5.100.zip ကို ဖြည်ပြီး installation လုပ်နိုင်ပါတယ်။
+Repo ထဲက Paduk-5.100.zip ကို ဖြည်ပြီး installation လုပ်နိုင်ပါတယ်။ မလုပ်ကြည့်ရသေးပါ။ အပေါ်က fonts-noto သွင်းပြီးတာနဲ့ browser မှာ တန်းပြီး Myanmar စာ ရသွားပါတယ်။
 ```
 ##### NOTE : URL 
 ```
