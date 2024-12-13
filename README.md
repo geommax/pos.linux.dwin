@@ -39,14 +39,39 @@ php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/m
 
 ## Step 3. browser kiosk-mode
 
+install ARCH 64 Compatible Browser
+
 ```
-$ chromium --kiosk http://localhost
+sudo apt install chromium-browser firefox-esr
+```
+
+```
+chromium --kiosk http://localhost
 ```
 ```
-$ vim ~/.config/lxsession/LXDE/autostart
+firefox --kiosk http://example.com
 ```
 ```
-$ chromium --kiosk http://example.com --disable-infobars --start-fullscreen
+vim ~/.config/lxsession/LXDE/autostart
+```
+```
+chromium --kiosk http://example.com --disable-infobars --start-fullscreen
+```
+
+#### Step 3.1 - unclutter to hide mouse icon
+```
+sudo apt install unclutter
+```
+```
+unclutter &
+```
+
+#### Step 3.2 - Disable screen blanking and power-saving
+Add this to ~/.config/lxsession/LXDE/autostart:
+```
+@xset s off
+@xset -dpms
+@xset s noblank
 ```
 
 #### Additional Options
@@ -336,14 +361,51 @@ http://localhost:631/printers/POS-80
 
 ## Step 10. Browser MM Fonts Support, Wifi Application, Logout application , Print Test From Browser not cups service.
 
-```
-TO DO
 
-Printer Mangement Applications
+### Step 10.1 Printer Mangement Applications
+
+
+### Step 10.2 Wifi Application
+
 ```
+sudo apt install network-manager network-manager-gnome
+```
+
+```
+echo "@nm-applet" >> ~/.config/lxsession/LXDE/autostart
+```
+
+### Step 10.3 Logout, Restart, Poweroff Utility
+
+> TODO 
+
+### Step 10.4 Browser Myanmar Language Support
+```
+sudo apt install fonts-noto fonts-noto-cjk fonts-noto-color-emoji
+```
+```
+sudo apt install fonts-padauk
+```
+```
+Repo ထဲက Paduk-5.100.zip ကို ဖြည်ပြီး installation လုပ်နိုင်ပါတယ်။
+```
+##### NOTE : URL 
+```
+https://software.sil.org/padauk/download/
+```
+```
+sudo locale-gen my_MM.UTF-8
+```
+```
+sudo update-locale LANG=my_MM.UTF-8
+```
+
+## Step 11. Change Boot Logo 
+
+> TODO 
 
 ## Step 11. Using SIM Card Module
 
-## Step 12. Push Button Function and Hardware Structure
+## Step 12. Analysis Push Button Function and Hardware Structure
 
 ## Step 13. Project Manual ( LINK to new md file )
