@@ -12,81 +12,83 @@ sudo apt install apache2
 ```
 https://dev.mysql.com/
 https://downloads.mysql.com/archives/community/
-```
-https://drive.google.com/drive/folders/12Z0poiwLLDbzIOkSWBSGQHgCLU3OiAtO?usp=sharing
-```
+
 > နောက်ဆုံးမှာ maridb ကို သာ အသုံးပြုဖို့ ဆုံးဖြတ်ခဲ့သည်။
 
-```
+> အသေးစိတ်အဖြစ်အပျက်ကို project_deployment တွင်ကြည့်ရန်။
+
+```ဘက်
 sudo apt install maridb
 ```
+
+> Database administration commands နဲ့ query များကို mariadb_administration.md တွင်ဖတ်ပါ။
 
 ## 🚀 Step 2. installing php 8.3 for arm64 
 
 https://github.com/oerdnj/deb.sury.org/issues/2220
 https://github.com/oerdnj/deb.sury.org/issues/2176
 
+> PHP နဲ့ ပတ်သက်တဲ့ installation တွေကတော့ 
+#### Install PHP and MySQL Extensions:
+```ဘက်
+sudo apt install -y php php-mysql php-cli php-xml php-curl php-mbstring php-zip libapache2-mod-php
+```
+
+Verify PHP:
+```ဘက်
+php -v
+```
+```ဘက်
+linaro@linaro-alip:/usr/share$ php -v
+PHP 7.3.31-1~deb10u7 (cli) (built: Jun 17 2024 21:48:38) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.3.31, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.3.31-1~deb10u7, Copyright (c) 1999-2018, by Zend Technologies
+linaro@linaro-alip:/usr/share$ 
+```
+
+> php7.3.31 သာ repo မှာ ရသေးတာဖြစ်တဲ့အတွက် 8.3 version မရပေမယ့်လည်း အာ့ကောင်နဲ့ပဲ စမ်းကြည့်မယ်။ 
+
+> 8.3 version အတွက် RAW Data များကို project deployments တွင် ကြည့်ရန်။ 
 
 ###### Target="Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board"
 
 > debian 10 မှာ ပြသနာ တက်နေတဲ့ php8.3 installation အား fix ခြင်း
 
 
-###### Download PHP 8.3 Core and Extensions
-https://packages.sury.org/php/dists/bullseye/
-
-https://packages.sury.org/php/pool/main/p/php8.3/
-
-> core packages for php backend.
-
-```
-Extension	Purpose	Download URL Pattern
-php8.3-cli	Run PHP scripts from the command line.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-cli_<version>_arm64.deb
-php8.3-mysql	MySQL database support.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-mysql_<version>_arm64.deb
-php8.3-common	Common files for PHP.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-common_<version>_arm64.deb
-php8.3-fpm	FastCGI Process Manager for PHP.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-fpm_<version>_arm64.deb
-php8.3-xml	XML support.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-xml_<version>_arm64.deb
-php8.3-curl	CURL support for API integrations.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-curl_<version>_arm64.deb
-php8.3-zip	ZIP handling for file compression.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-zip_<version>_arm64.deb
-php8.3-mbstring	Multibyte string functions.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-mbstring_<version>_arm64.deb
-php8.3-bcmath	For arithmetic calculations in Laravel.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-bcmath_<version>_arm64.deb
-php8.3-tokenizer	Required for Laravel blade templates.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-tokenizer_<version>_arm64.deb
-php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/main/p/php8.3/php8.3-intl_<version>_arm64.deb
-```
-
 
 ## 🚀 Step 3. browser kiosk-mode
 
 install ARCH 64 Compatible Browser
 
-```
+```ဘက်
 sudo apt install chromium-browser firefox-esr
 ```
 
-```
+```ဘက်
 chromium --kiosk http://localhost
 ```
-```
+```ဘက်
 firefox --kiosk http://example.com
 ```
-```
+```ဘက်
 vim ~/.config/lxsession/LXDE/autostart
 ```
-```
+```ဘက်
 chromium --kiosk http://example.com --disable-infobars --start-fullscreen
 ```
 
-#### Step 3.1 - unclutter to hide mouse icon
-```
+#### Step 3.1 - unclutter to hide mouse icon (မရသေးပါ။)
+```ဘက်
 sudo apt install unclutter
 ```
-```
+```ဘက်
 unclutter &
 ```
 
 #### Step 3.2 - Disable screen blanking and power-saving
 Add this to ~/.config/lxsession/LXDE/autostart:
-```
+```ဘက်
 @xset s off
 @xset -dpms
 @xset s noblank
@@ -94,31 +96,31 @@ Add this to ~/.config/lxsession/LXDE/autostart:
 #### Additional Options
 You can also include more flags for customization:
 
-```
+```ဘက်
 --start-fullscreen (force fullscreen mode).
 --disable-infobars (disable info bars).
 --incognito (private browsing).
 ```
 
-```
+```ဘက်
 linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart 
 ```
-```
+```ဘက်
 @lxpanel --profile LXDE
 ```
 > Explaination: Restores the LXDE panel, which might include your WiFi icon and other system indicators.
-```
+```ဘက်
 @pcmanfm --desktop --profile LXDE
 ```
 > Explaination: Restores desktop management and icons. Include this if you want to see the desktop background or use file manager shortcuts.
-```
+```ဘက်
 @xscreensaver -no-splash
 @chromium --kiosk http://localhost 
 ```
 > ~/.config/lxsession/LXDE/autostart file ထဲမှာ @chromimum --kiosk http://localhost သာထည့်ထားလိုက်တာနဲ့ရပါပြီ။
 
 #### NOTE: Openbox controls window decorations (title bar, buttons). To customize it:
-```
+```ဘက်
 $ vim ~/.config/openbox/lxde-rc.xml
 ```
 
@@ -127,13 +129,13 @@ $ vim ~/.config/openbox/lxde-rc.xml
 1. Edit Openbox Configuration
 The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
 
-```
+```ဘက်
 vim ~/.config/openbox/lxde-rc.xml
 ```
 
 2. If the file does not exist, check in the global configuration:
 
-```
+```ဘက်
 sudo vim /etc/xdg/openbox/lxde-rc.xml
 ```
 
@@ -177,7 +179,7 @@ Media Size: 80(72mm) * 210 mm
 
 ##### Maintenance Purpose
 
-```
+```ဘက်
 Administration
 Description:	Printer POS-80
 Location:	counter
@@ -187,7 +189,7 @@ Defaults:	job-sheets=none, none media=custom_71.97x209.9mm_71.97x209.9mm sides=o
 ```
 
 #### Step 8.2. ON AARCH64
-```
+```ဘက်
 linlin@linaro-alip:~$ sudo dpkg -i printer-driver-xprinter_3.13.3_all.deb 
 (Reading database ... 85163 files and directories currently installed.)
 Preparing to unpack printer-driver-xprinter_3.13.3_all.deb ...
@@ -203,10 +205,10 @@ Please navigate to http://localhost:631/ for manage your printers.
 ```
 
 #### Step 8.3. how to check /dev lists for POS 80 printer?
-```
+```ဘက်
 dmesg | grep -i usb
 ```
-```
+```ဘက်
 dmesg -w
 ```
 
@@ -215,7 +217,7 @@ dmesg -w
 > expected kernel message output of AARCH64 $ sudo dmesg -w. 
 
 #### Step 8.4. On Native Ubuntu Linux
-```
+```ဘက်
 [23492.051181] usb 1-2: Product: USB Printer Port
 [23492.051183] usb 1-2: Manufacturer: Printer
 [23492.064856] usblp 1-2:1.0: usblp1: USB Bidirectional printer dev 6 if 0 alt 0 proto 2 vid 0x1FC9 pid 0x2016
@@ -224,7 +226,7 @@ dmesg -w
 [23497.254803] usblp 1-2:1.0: usblp1: USB Bidirectional printer dev 6 if 0 alt 0 proto 2 vid 0x1FC9 pid 0x2016
 ```
 
-```
+```ဘက်
 bot@bot-Vostro-14-3468:~/pos.linux.dwin/Linux_Driver-Xprinter/Linux$ sudo lsusb
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 005: ID 0cf3:e009 Qualcomm Atheros Communications 
@@ -235,11 +237,11 @@ Bus 001 Device 002: ID 25a7:fa23 Areson Technology Corp 2.4G Receiver
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-```
+```ဘက်
 dpkg -l | grep cups
 ```
 
-```
+```ဘက်
 bot@bot-Vostro-14-3468:~/pos.linux.dwin/Linux_Driver-Xprinter/Linux$ lsusb -d 1fc9:2016
 Bus 001 Device 007: ID 1fc9:2016 NXP Semiconductors USB Printer Port
 ```
@@ -253,7 +255,7 @@ Bus 001 Device 007: ID 1fc9:2016 NXP Semiconductors USB Printer Port
 > socket://192.168.123.100:9100 နဲ့ cofigure လုပ်တာ အဆင်ပြေပါတယ်။ ipp, http မရသေးပါ။
 
 #### Step 8.6.Installation 
-```
+```ဘက်
 bot@bot-Vostro-14-3468:~/pos.linux.dwin$ sudo ./XP-80 
 [sudo] password for bot: 
 Xprinter
@@ -292,7 +294,7 @@ bot@bot-Vostro-14-3468:~/pos.linux.dwin$
 
 #### Step 8.7 - PPD File is here 
 
-```
+```ဘက်
 bot@bot-Vostro-14-3468:/usr/share/cups/model$ cd XP/
 bot@bot-Vostro-14-3468:/usr/share/cups/model/XP$ ls
 XP-80.ppd
@@ -307,7 +309,7 @@ bot@bot-Vostro-14-3468:/usr/share/cups/model/xprinter$ ls
 
 #### Step 8.8 - Solution using Socket Protocol
 
-```
+```ဘက်
 Description:	ETH
 Location:	
 Connection:	socket://192.168.123.100:9100
@@ -318,11 +320,11 @@ Model:	Current Driver - XP-80XP-80 (en)
 #### NOTE: USB နဲ့ မရပါဘူး, ETH နဲ့ ပဲ ip config ချပြီး connection ရယူလိုက်တာပါ။ USB နဲ့က လိုအပ်တဲ့ power voltage မလုံလောက်ဘူး၊ bad usb cable ဆိုပြီး kernel error message တက်တာပါ။
 
 
-```
+```ဘက်
 dmesg -w
 ```
 
-```
+```ဘက်
 [ 3935.629014] usb 2-1: new high-speed USB device number 30 using ehci-platform
 [ 3937.155860] usb usb2-port1: Cannot enable. Maybe the USB cable is bad?
 [ 3938.669071] usb usb2-port1: Cannot enable. Maybe the USB cable is bad?
@@ -333,7 +335,7 @@ dmesg -w
 ## 🚀 Step 9. On PROD DWIN LCD
 
 #### Step 9.1 - Install XP-80 Printer & check 
-```
+```ဘက်
 linaro@linaro-alip:~$ sudo ./XP-80 
 Xprinter
 cupsdrv-2.4.0 installer
@@ -366,7 +368,7 @@ Go to http://localhost:631, or http://127.0.0.1:631 to manage your printer pleas
 ```
 
 #### Step 9.2 - Check Printer ppd file is exists.
-```
+```ဘက်
 linaro@linaro-alip:~$ ls /usr/share/cups/model/
 XP  xprinter
 linaro@linaro-alip:~$ ls /usr/share/cups/model/XP/
@@ -378,7 +380,7 @@ linaro@linaro-alip:~$
 
 modify Printer configuration
 
-```
+```ဘက်
 http://localhost:631/printers/POS-80
 ```
 
@@ -392,11 +394,11 @@ http://localhost:631/printers/POS-80
 
 ### Step 10.2 Wifi Application
 
-```
+```ဘက်
 sudo apt install network-manager network-manager-gnome
 ```
 
-```
+```ဘက်
 echo "@nm-applet" >> ~/.config/lxsession/LXDE/autostart
 ```
 
@@ -405,23 +407,23 @@ echo "@nm-applet" >> ~/.config/lxsession/LXDE/autostart
 > TODO 
 
 ### Step 10.4 Browser Myanmar Language Support
-```
+```ဘက်
 sudo apt install fonts-noto fonts-noto-cjk fonts-noto-color-emoji
 ```
-```
+```ဘက်
 sudo apt install fonts-padauk
 ```
-```
+```ဘက်
 Repo ထဲက Paduk-5.100.zip ကို ဖြည်ပြီး installation လုပ်နိုင်ပါတယ်။ မလုပ်ကြည့်ရသေးပါ။ အပေါ်က fonts-noto သွင်းပြီးတာနဲ့ browser မှာ တန်းပြီး Myanmar စာ ရသွားပါတယ်။
 ```
 ##### NOTE : URL 
-```
+```ဘက်
 https://software.sil.org/padauk/download/
 ```
-```
+```ဘက်
 sudo locale-gen my_MM.UTF-8
 ```
-```
+```ဘက်
 sudo update-locale LANG=my_MM.UTF-8
 ```
 
