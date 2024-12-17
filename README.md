@@ -21,6 +21,10 @@ https://downloads.mysql.com/archives/community/
 sudo apt install maridb
 ```
 
+```ဘက်
+sudo mariadb -u root -p
+```
+
 > Database administration commands နဲ့ query များကို mariadb_administration.md တွင်ဖတ်ပါ။
 
 ## 🚀 Step 2. installing php 8.3 for arm64 
