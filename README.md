@@ -1,7 +1,7 @@
-# pos.linux.dwin
+# pos.linux.dwin 🚀🚀
 > ABOUT : config parameters and automated script for debian 10 - LXDE "Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board"
 
-## Step 1. install necessary apache2 and MySQL 8.4 LTS Servers 
+## 🚀 Step 1. install necessary apache2 and MySQL 8.4 LTS Servers 
 
 NOTE: URL 
 ```
@@ -21,7 +21,7 @@ https://drive.google.com/drive/folders/12Z0poiwLLDbzIOkSWBSGQHgCLU3OiAtO?usp=sha
 sudo apt install maridb
 ```
 
-## Step 2. installing php 8.3 for arm64 
+## 🚀 Step 2. installing php 8.3 for arm64 
 
 https://github.com/oerdnj/deb.sury.org/issues/2220
 https://github.com/oerdnj/deb.sury.org/issues/2176
@@ -55,7 +55,7 @@ php8.3-intl	Internationalization functions.	https://packages.sury.org/php/pool/m
 ```
 
 
-## Step 3. browser kiosk-mode
+## 🚀 Step 3. browser kiosk-mode
 
 install ARCH 64 Compatible Browser
 
@@ -122,7 +122,7 @@ linaro@linaro-alip:~$ cat ~/.config/lxsession/LXDE/autostart
 $ vim ~/.config/openbox/lxde-rc.xml
 ```
 
-## Step 4. Defend input Command Shortcuts to the system
+## 🚀 Step 4. Defend input Command Shortcuts to the system
 
 1. Edit Openbox Configuration
 The keyboard shortcuts for LXDE are managed in the lxde-rc.xml file.
@@ -143,7 +143,7 @@ sudo vim /etc/xdg/openbox/lxde-rc.xml
 
 - power ပိတ်ဖို့အတွက်ပဲ ဘယ်နားပိတ်ရမလဲ မသိပါ။
 
-## Step 5. Defend Network ports and filtering firewall rules
+## 🚀 Step 5. Defend Network ports and filtering firewall rules
 
 - do not expose port 80, database ports. 
 
@@ -151,7 +151,7 @@ sudo vim /etc/xdg/openbox/lxde-rc.xml
 
 - host ID နှစ်လုံးပဲရမယ့် subnet ကိုတွက်ပေးပါ။
 
-## Step 6. user can use only on browser kiosk environment.
+## 🚀 Step 6. user can use only on browser kiosk environment.
 
 > Core Requirements
 
@@ -161,9 +161,9 @@ sudo vim /etc/xdg/openbox/lxde-rc.xml
 - 4. Ads Tunnel if device can access internet via wifi
 - 5. wifi connection management application (linux aarch64)
 
-## Step 7. Remove repository source lists
+## 🚀 Step 7. Remove repository source lists
 
-## Step 8. Printer Setup X - Printer (compile & install) (over eth, usb)
+## 🚀 Step 8. Printer Setup X - Printer (compile & install) (over eth, usb)
 
 https://www.xprintertech.com/pos-80-printer-intallation-tutorial-video-on-linux-system-of-ubuntu-version
 
@@ -330,7 +330,7 @@ dmesg -w
 [ 3940.255630] usb usb2-port1: Cannot enable. Maybe the USB cable is bad?
 ```
 
-## Step 9. On PROD DWIN LCD
+## 🚀 Step 9. On PROD DWIN LCD
 
 #### Step 9.1 - Install XP-80 Printer & check 
 ```
@@ -382,7 +382,7 @@ modify Printer configuration
 http://localhost:631/printers/POS-80
 ```
 
-## Step 10. Browser MM Fonts Support, Wifi Application, Logout application , Print Test From Browser not cups service.
+## 🚀 Step 10. Browser MM Fonts Support, Wifi Application, Logout application , Print Test From Browser not cups service.
 
 
 ### Step 10.1 Printer Mangement Applications
@@ -425,12 +425,14 @@ sudo locale-gen my_MM.UTF-8
 sudo update-locale LANG=my_MM.UTF-8
 ```
 
-## Step 11. Change Boot Logo 
+## 🚀 Step 11. Change Boot Logo 
 
 > TODO 
 
-## Step 11. Using SIM Card Module
+## 🚀 Step 11. Using SIM Card Module
 
-## Step 12. Analysis Push Button Function and Hardware Structure
+> Wifi Chip RTL8723DS
 
-## Step 13. Project Deployment Manual ( LINK to new md file )
+## 🚀 Step 12. Analysis Push Button Function and Hardware Structure
+
+## 🚀 Step 13. Project Deployment Manual ( LINK to new md file )
