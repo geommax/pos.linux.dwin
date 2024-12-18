@@ -1,5 +1,6 @@
-# pos.linux.dwin 🚀🚀
+# 🚀 pos.linux.dwin 🚀
 > ABOUT : config parameters and automated script for debian 10 - LXDE "Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board"
+###### Target="Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board"
 
 ## 🚀 Step 1. Fronend Deployment
 
@@ -57,10 +58,29 @@ Your Composer dependencies require a PHP version ">= 8.2.0". You are running 7.3
 PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 7.3.31-1~deb10u7. in /home/linaro/backend/vendor/composer/platform_check.php on line 24
 ```
 
-###### Target="Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board"
-
 > debian 10 မှာ ပြသနာ တက်နေတဲ့ php8.3 installation အား fix ခြင်း
 
+> PHP 8.3 ကို Repo မှ ဆွဲလို့မရတဲ့အတွက် manual installation စလုပ်ဖို့ကြံရွယ်ပါတယ်။ (VPN လိုနေတာပါ လီးး။)
+
+#### Step 1.1 Manual Installation of PHP 8.3 =< version
+
+Resource Link 
+
+```
+https://deb.sury.org/
+https://packages.sury.org/
+https://launchpad.net/~ondrej/+archive/ubuntu/php/
+```
+
+required deb list
+
+```
+-
+-
+-
+-
+
+```
 
 ## 🚀 Step 2. Backend Deployment
 
