@@ -44,7 +44,18 @@ Zend Engine v3.3.31, Copyright (c) 1998-2018 Zend Technologies
 linaro@linaro-alip:/usr/share$ 
 ```
 
-> php7.3.31 သာ repo မှာ ရသေးတာဖြစ်တဲ့အတွက် 8.3 version မရပေမယ့်လည်း အာ့ကောင်နဲ့ပဲ စမ်းကြည့်မယ်။ 
+> php7.3.31 သာ repo မှာ ရသေးတာဖြစ်တဲ့အတွက် 8.3 version မရပေမယ့်လည်း အာ့ကောင်နဲ့ပဲ စမ်းကြည့်မယ်။
+
+##### NOTE : ERROR on PHP 7.3
+
+```
+linaro@linaro-alip:~/backend$ php artisan serve
+Composer detected issues in your platform:
+
+Your Composer dependencies require a PHP version ">= 8.2.0". You are running 7.3.31-1~deb10u7.
+
+PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 7.3.31-1~deb10u7. in /home/linaro/backend/vendor/composer/platform_check.php on line 24
+```
 
 ###### Target="Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board"
 
