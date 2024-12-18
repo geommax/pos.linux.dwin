@@ -13,6 +13,21 @@ sudo apt install apache2
 ```
 sudo apt install apache2 php libapache2-mod-php php-cli php-mbstring php-xml php-bcmath unzip
 ```
+Installation Log
+
+```
+
+Creating config file /etc/php/7.3/mods-available/bcmath.ini with new version
+Setting up php-bcmath (2:7.3+69) ...
+Processing triggers for libapache2-mod-php7.3 (7.3.31-1~deb10u7) ...
+Processing triggers for php7.3-fpm (7.3.31-1~deb10u7) ...
+NOTICE: Not enabling PHP 7.3 FPM by default.
+NOTICE: To enable PHP 7.3 FPM in Apache2 do:
+NOTICE: a2enmod proxy_fcgi setenvif
+NOTICE: a2enconf php7.3-fpm
+NOTICE: You are seeing this message because you have apache2 package installed.
+
+```
 https://dev.mysql.com/
 https://downloads.mysql.com/archives/community/
 
