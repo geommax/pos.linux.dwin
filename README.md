@@ -10,6 +10,9 @@ https://www.digitalocean.com/community/tutorials/how-to-install-lamp-stack-on-ub
 ```
 sudo apt install apache2
 ```
+```
+sudo apt install apache2 php libapache2-mod-php php-cli php-mbstring php-xml php-bcmath unzip
+```
 https://dev.mysql.com/
 https://downloads.mysql.com/archives/community/
 
