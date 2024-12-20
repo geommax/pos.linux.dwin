@@ -74,12 +74,13 @@ sudo sudo apt install -f
 > Debian 11 နဲ့ 12 ကိုပဲ php 8.4 က support ပေးတာဖြစ်ပါတယ်။ ကိုယ့်ဟာ Debian 10 ဖြစ်နေတော့ လိုက်ညှိရဦးမယ်ပေါ့။ dependencies တွေ သဘောထားကွဲလွှဲချက် ၊ (သူမ ကိုတောင် သတိရသွားတယ်ဗျာ။) နားလိုက်ဦးမယ်။ 
 
 ```bash
-Key Problems
+
 Missing Dependencies:
 
 php8.4-opcache
 php8.4-readline
 Libraries: libffi7, libicu67, libgcc-s1, libonig5, libzip4, libsodium23, libpcre2-8-0
+
 Version Conflicts:
 
 Your libc6 (version 2.28) is too old; PHP 8.4 requires >= 2.30.
@@ -89,8 +90,9 @@ libzip4 version 1.5.1 is outdated (PHP 8.4 requires >= 1.7.0).
 
 
 ```
-
-
+```
+curl -fsSL https://get.docker.com -o install_docker.sh
+```
 ---
 
 ### **Verify Installed Modules**
