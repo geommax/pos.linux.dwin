@@ -2,7 +2,21 @@
 > ABOUT : config parameters and automated script for debian 10 - LXDE "Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board"
 ###### Target="Debian GNU/Linux 10 (buster), Rockchip RK3566 EVB2 LP4X V10 Board" Linux linaro-alip 4.19.232 #1 SMP Wed Aug 16 17:20:44 CST 2023 aarch64 GNU/Linux
 
-
+```
+sudo su 
+```
+```
+dpkg-reconfigure locales
+```
+```
+Choose US utf-8
+```
+```
+Choose default laungage  to none 
+```
+```
+Restart
+```
 
 ## 🚀 Step 1. Fronend Deployment
 
