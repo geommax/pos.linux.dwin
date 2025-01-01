@@ -1,5 +1,42 @@
 Here are **basic and administrative queries and commands** for MariaDB/MySQL to help you manage databases, users, and permissions effectively.
 
+```
+sudo mysql_secure_installation
+
+...
+Set the root password.
+Remove anonymous users.
+Disallow root login remotely.
+Remove test databases.
+Reload privilege tables.
+....
+...
+..
+.
+
+```
+
+```
+sudo mysql -u root -p
+```
+
+```
+CREATE DATABASE db_web_pos;
+```
+
+```query
+CREATE USER 'TZH'@'localhost' IDENTIFIED BY 'password';
+```
+```
+GRANT ALL PRIVILEGES ON db_web_pos.* TO 'TZH'@'localhost';
+```
+```
+FLUSH PRIVILEGES;
+```
+```
+EXIT;
+```
+
 ---
 
 ## **1. Basic Queries and Commands**
