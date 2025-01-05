@@ -1,104 +1,78 @@
 ## 🚀 PHP-related modules: (PHP 8.4 and apache 2) 🚀
 
----
+To install PHP 8.4 on Debian 11 (Bullseye) for the ARM64 architecture, you can use the repository maintained by Ondřej Surý, which provides up-to-date PHP packages for Debian systems. Here's how to set it up:
 
-#### Download PHP 8.3 Core and Extensions
-https://packages.sury.org/php/dists/bullseye/
+1. **Add the SURY Repository**:
 
-https://packages.sury.org/php/pool/main/p/php8.3/
+   First, ensure your system is updated and that necessary packages for adding repositories are installed:
 
-> core packages for php backend.
+   ```bash
+   sudo apt-get update
+   sudo apt-get -y install apt-transport-https lsb-release ca-certificates curl
+   ```
 
-```
-Extension   Purpose Download URL Pattern
-php8.3-cli  Run PHP scripts from the command line.  https://packages.sury.org/php/pool/main/p/php8.3/php8.3-cli_<version>_arm64.deb
-php8.3-mysql    MySQL database support. https://packages.sury.org/php/pool/main/p/php8.3/php8.3-mysql_<version>_arm64.deb
-php8.3-common   Common files for PHP.   https://packages.sury.org/php/pool/main/p/php8.3/php8.3-common_<version>_arm64.deb
-php8.3-fpm  FastCGI Process Manager for PHP.    https://packages.sury.org/php/pool/main/p/php8.3/php8.3-fpm_<version>_arm64.deb
-php8.3-xml  XML support.    https://packages.sury.org/php/pool/main/p/php8.3/php8.3-xml_<version>_arm64.deb
-php8.3-curl CURL support for API integrations.  https://packages.sury.org/php/pool/main/p/php8.3/php8.3-curl_<version>_arm64.deb
-php8.3-zip  ZIP handling for file compression.  https://packages.sury.org/php/pool/main/p/php8.3/php8.3-zip_<version>_arm64.deb
-php8.3-mbstring Multibyte string functions. https://packages.sury.org/php/pool/main/p/php8.3/php8.3-mbstring_<version>_arm64.deb
-php8.3-bcmath   For arithmetic calculations in Laravel. https://packages.sury.org/php/pool/main/p/php8.3/php8.3-bcmath_<version>_arm64.deb
-php8.3-tokenizer    Required for Laravel blade templates.   https://packages.sury.org/php/pool/main/p/php8.3/php8.3-tokenizer_<version>_arm64.deb
-php8.3-intl Internationalization functions. https://packages.sury.org/php/pool/main/p/php8.3/php8.3-intl_<version>_arm64.deb
-```
+   Next, import the repository's GPG key and add the repository to your system:
 
+   ```bash
+   sudo curl -sSLo /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+   echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+   ```
 
-### **Core PHP Modules**
-- **`php8.4-cli`**: Command-line interface for PHP  
-- **`php8.4-fpm`**: FastCGI Process Manager for PHP (if using NGINX or FastCGI)  
-- **`php8.4-common`**: Base files and libraries for PHP  
-- **`php8.4-mysql`**: MySQL database integration  
-- **`php8.4-xml`**: Support for XML, SimpleXML, DOM, etc.  
-- **`php8.4-curl`**: For data transfer via URLs (cURL library)  
-- **`php8.4-zip`**: ZIP archive support  
-- **`php8.4-mbstring`**: Multibyte string processing for encoding  
-- **`php8.4-intl`**: Internationalization functions (locale support)  
-- **`php8.4-bcmath`**: Arbitrary precision mathematics library  
-- **`php8.4-gd`**: Image processing library  
+   After adding the repository, update your package list:
 
----
+   ```bash
+   sudo apt-get update
+   ```
 
-### **For Web Applications**
-- **`php8.4-json`**: JSON support (commonly required for APIs)  
-- **`php8.4-opcache`**: Opcode caching to improve performance  
-- **`php8.4-redis`**: Redis caching and database module  
-- **`php8.4-sqlite3`**: SQLite database support  
-- **`php8.4-soap`**: SOAP web services support  
-- **`php8.4-imap`**: IMAP email protocol support  
-- **`php8.4-ldap`**: LDAP (Lightweight Directory Access Protocol) support  
-- **`php8.4-exif`**: Reading metadata (EXIF) from images  
+   
 
----
+2. **Install PHP 8.4**:
 
-### **Development Tools**
-- **`php8.4-xdebug`**: Debugging and profiling tool for PHP development  
-- **`php8.4-dev`**: PHP development files for compiling extensions  
+   With the repository added, you can install PHP 8.4 along with commonly used extensions. Replace `[extension]` with any specific extensions you require:
 
----
+   ```bash
+   sudo apt-get install php8.4 php8.4-[extension]
+   ```
 
-### **Optional Packages for Apache2**
-- **`libapache2-mod-php8.4`**: Apache2 module for PHP integration  
+   For example, to install PHP 8.4 with the `cli`, `mbstring`, `xml`, `common`, and `curl` extensions:
 
----
+   ```bash
+   sudo apt-get install php8.4-cli php8.4-mbstring php8.4-xml php8.4-common php8.4-curl
+   ```
 
-### **Installing Missing Modules**
+   
 
-```bash
-sudo dpkg -i php8.4*
-```
-```bash
-sudo sudo apt install -f
-```
-> Debian 11 နဲ့ 12 ကိုပဲ php 8.4 က support ပေးတာဖြစ်ပါတယ်။ ကိုယ့်ဟာ Debian 10 ဖြစ်နေတော့ လိုက်ညှိရဦးမယ်ပေါ့။ dependencies တွေ သဘောထားကွဲလွှဲချက် ၊ (သူမ ကိုတောင် သတိရသွားတယ်ဗျာ။) နားလိုက်ဦးမယ်။ 
+3. **Verify the Installation**:
 
-```bash
+   After installation, confirm that PHP 8.4 is installed by checking its version:
 
-Missing Dependencies:
+   ```bash
+   php -v
+   ```
 
-php8.4-opcache
-php8.4-readline
-Libraries: libffi7, libicu67, libgcc-s1, libonig5, libzip4, libsodium23, libpcre2-8-0
+   You should see output indicating that PHP 8.4 is installed.
 
-Version Conflicts:
+   
 
-Your libc6 (version 2.28) is too old; PHP 8.4 requires >= 2.30.
-libpcre2-8-0 version 10.32 is outdated (PHP 8.4 requires >= 10.38).
-libsodium23 version 1.0.17 is too old (PHP 8.4 requires >= 1.0.18).
-libzip4 version 1.5.1 is outdated (PHP 8.4 requires >= 1.7.0).
+4. **Configure PHP-FPM (Optional)**:
 
+   If you're using PHP with a web server like Nginx or Apache, consider installing and configuring PHP-FPM:
 
-```
-```
-curl -fsSL https://get.docker.com -o install_docker.sh
-```
----
+   ```bash
+   sudo apt-get install php8.4-fpm
+   ```
 
-### **Verify Installed Modules**
-To check which PHP modules are active:
-```bash
-php -m
-```
+   Ensure the PHP-FPM service is running:
 
----
+   ```bash
+   sudo systemctl start php8.4-fpm
+   sudo systemctl enable php8.4-fpm
+   ```
+
+   Configure your web server to use PHP 8.4-FPM by updating its configuration files accordingly.
+
+   
+
+**Note**: While the SURY repository is widely used and trusted, it's maintained by a third party. Always ensure that adding external repositories aligns with your system's security policies.
+
+By following these steps, you should have PHP 8.4 installed on your Debian 11 ARM64 system. 
