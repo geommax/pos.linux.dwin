@@ -71,7 +71,7 @@ mysql -u TZH -p db_web_pos < db_web_pos.sql
 ### 3. apache related commands
 
 ```bash
-sudo apt install php8.4-cli php8.4-fpm php8.4-mysql php8.4-curl php8.4-xml php8.4-mbstring php8.4-zip php8.4-bcmath php8.4-intl php8.4-soap php8.4-gd php8.4-json php8.4-tokenizer php8.4-opcache php8.4-readline php8.4-common
+sudo apt install php8.4-cli php8.4-fpm php8.4-mysql php8.4-curl php8.4-xml php8.4-mbstring php8.4-zip php8.4-bcmath php8.4-intl php8.4-soap php8.4-gd php8.4-json php8.4-tokenizer php8.4-opcache php8.4-readline php8.4-common mariadb-server apache2 
 ```
 
 
@@ -96,6 +96,12 @@ sudo nano /etc/hosts
 ```bash
 127.0.0.1   backend.local
 ```
+```bash
+sudo ln -s /var/www/html/backend/storage/app/public /var/www/html/backend/public/storage
+```
+```bash
+ls -l /var/www/html/backend/public/
+```
 
 ### 4. php related commands
 
@@ -107,7 +113,38 @@ sudo a2enmod php8.4
 sudo systemctl restart apache2
 ```
 
-### 5. Installation of Required Dependencies 
+### 🚀 5. Installation of Required Dependencies 
+
+
+PHP 8.4 on Debian 11 (Bullseye) for the ARM64 architecture, the repository maintained by Ondřej Surý, 
+
+1. **Add the SURY Repository**:
+
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get -y install apt-transport-https lsb-release ca-certificates curl
+   ```
+
+
+   ```bash
+   sudo curl -sSLo /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+   echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+   ```
+   ```bash
+   sudo apt-get update
+   ```
+   
+   ```bash
+   sudo apt-get install php8.4-fpm
+   ```
+
+   Ensure the PHP-FPM service is running:
+
+   ```bash
+   sudo systemctl start php8.4-fpm
+   sudo systemctl enable php8.4-fpm
+   ```
 
 
 ### 6. Loggin and Monitoring
