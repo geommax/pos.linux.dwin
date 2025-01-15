@@ -9,30 +9,6 @@ sudo chown -R www-data:www-data /var/www/html/backend
 sudo chmod -R 755 /var/www/html/backend
 ```
 
-```bash
-bot@bot-Vostro-14-3468:/etc/apache2/sites-available$ cat backend.conf 
-<VirtualHost *:80>
-    ServerName backend.local
-    DocumentRoot /var/www/html/backend/public
-    <Directory /var/www/html/backend/public>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-</VirtualHost>
-bot@bot-Vostro-14-3468:/etc/apache2/sites-available$ cat frontend.conf 
-<VirtualHost *:80>
-    ServerName frontend.local
-    DocumentRoot /var/www/html/frontend
-    <Directory /var/www/html/frontend>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-</VirtualHost>
-bot@bot-Vostro-14-3468:/etc/apache2/sites-available$
-```
-
 ```
 sudo a2ensite frontend.conf
 sudo a2ensite backend.conf

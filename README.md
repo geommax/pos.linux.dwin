@@ -1,7 +1,11 @@
 # 🚀 pos.linux.dwin 🚀
 
 ```
-sudo su 
+
+sudo locale-gen en_US.UTF-8
+```
+```
+sudo dpkg-reconfigure locales
 ```
 ```
 dpkg-reconfigure locales
