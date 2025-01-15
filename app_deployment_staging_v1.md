@@ -2,7 +2,7 @@
 
 ##
 
-### 1. Web & API Deployments
+### 🚀 1. Web & API Deployments
 
 1.1
 > copy apache2_sites-availiable/*.conf directory /etc/apache2/site-saviliable/
@@ -65,10 +65,10 @@ mysql -u TZH -p db_web_pos < db_web_pos.sql
 
 ##
 
-### 2. System Setup (reference to README.md) 
+### 🚀 2. System Setup (reference to README.md) 
 ##
 
-### 3. apache related commands
+### 🚀 3. apache related commands
 
 ```bash
 sudo apt install php8.4-cli php8.4-fpm php8.4-mysql php8.4-curl php8.4-xml php8.4-mbstring php8.4-zip php8.4-bcmath php8.4-intl php8.4-soap php8.4-gd php8.4-json php8.4-tokenizer php8.4-opcache php8.4-readline php8.4-common mariadb-server apache2 
@@ -103,7 +103,7 @@ sudo ln -s /var/www/html/backend/storage/app/public /var/www/html/backend/public
 ls -l /var/www/html/backend/public/
 ```
 
-### 4. php related commands
+### 🚀 4. php related commands
 
 ```
 sudo a2enmod php8.4
@@ -149,5 +149,10 @@ PHP 8.4 on Debian 11 (Bullseye) for the ARM64 architecture, the repository maint
 
 ### 6. Loggin and Monitoring
 
+> cannot initialilse NetworkPrinterConnecter : No route to host"
+
+```
+connect printer with network cable
+```
 
 
