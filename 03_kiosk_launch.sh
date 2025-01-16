@@ -8,6 +8,8 @@ USER="linaro"
 KIOSK_URL="http://frontend.local"
 AUTOSTART_DIR="/home/$USER/.config/autostart"
 CHROMIUM_DESKTOP_FILE="$AUTOSTART_DIR/chromium-kiosk.desktop"
+TOUCHSCREEN_FLAGS="--touch-events=enabled --overscroll-history-navigation=enabled --force-device-scale-factor=1"
+
 
 # Set up Chromium autostart for the kiosk user
 echo "Setting up Chromium kiosk mode autostart..."
@@ -17,7 +19,7 @@ cat <<EOF | sudo -u "$USER" tee "$CHROMIUM_DESKTOP_FILE" > /dev/null
 [Desktop Entry]
 Type=Application
 Name=Chromium Kiosk
-Exec=chromium --kiosk $KIOSK_URL --noerrdialogs --disable-infobars --disable-session-crashed-bubble
+Exec=chromium --kiosk $KIOSK_URL --noerrdialogs --disable-infobars --disable-session-crashed-bubble $TOUCHSCREEN_FLAGS
 X-GNOME-Autostart-enabled=true
 EOF
 

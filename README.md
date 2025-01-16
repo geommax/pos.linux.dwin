@@ -372,7 +372,7 @@ echo "@nm-applet" >> ~/.config/lxsession/LXDE/autostart
 
 > TODO 
 
-### Step 10.4 Browser Myanmar Language Support
+### Step 10.4 Browser Myanmar Language Support (Keyboard + Language)
 ```ဘက်
 sudo apt install fonts-noto fonts-noto-cjk fonts-noto-color-emoji
 ```
@@ -403,4 +403,4 @@ sudo update-locale LANG=my_MM.UTF-8
 
 ## 🚀 Step 12. Analysis Push Button Function and Hardware Structure
 
-## 🚀 Step 13. Project Deployment Manual ( LINK to new md file )
+
