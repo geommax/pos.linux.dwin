@@ -36,15 +36,15 @@ install_myanmar_fonts_and_keyboard() {
 deb http://ftp.de.debian.org/debian sid main
 EOF
   sudo apt update
-  #sudo apt install -y fonts-myanmar
-#   sudo tee /etc/default/keyboard > /dev/null <<EOF
-# # KEYBOARD CONFIGURATION FILE
-# XKBMODEL="pc105"
-# XKBLAYOUT="us,mm"
-# XKBVARIANT=","
-# XKBOPTIONS="grp:alt_shift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll"
-# BACKSPACE="guess"
-# EOF
+  sudo apt install -y fonts-myanmar
+  sudo tee /etc/default/keyboard > /dev/null <<EOF
+# KEYBOARD CONFIGURATION FILE
+XKBMODEL="pc105"
+XKBLAYOUT="us,mm"
+XKBVARIANT=","
+XKBOPTIONS="grp:alt_shift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll"
+BACKSPACE="guess"
+EOF
   sudo dpkg-reconfigure keyboard-configuration
   sudo systemctl restart keyboard-setup
 }
@@ -93,10 +93,10 @@ EOF
 
 # Main execution
 main() {
-  #set_system_language
-  #set_timezone
-  #install_myanmar_fonts_and_keyboard
-  #setup_xfce4
+  set_system_language
+  set_timezone
+  install_myanmar_fonts_and_keyboard
+  setup_xfce4
   setup_kiosk_mode
   echo "Setup is complete! Reboot the system to apply changes. (y/n)"
   read -r REBOOT
