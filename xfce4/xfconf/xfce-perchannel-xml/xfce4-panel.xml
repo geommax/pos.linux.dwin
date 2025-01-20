@@ -7,14 +7,15 @@
     <property name="dark-mode" type="bool" value="true"/>
     <property name="panel-1" type="empty">
       <property name="position" type="string" value="p=1;x=866;y=243"/>
-      <property name="length" type="uint" value="30"/>
+      <property name="length" type="uint" value="26"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="0"/>
-      <property name="size" type="uint" value="70"/>
+      <property name="size" type="uint" value="40"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
-        <value type="int" value="12"/>
         <value type="int" value="13"/>
+        <value type="int" value="2"/>
+        <value type="int" value="12"/>
       </property>
       <property name="disable-struts" type="bool" value="false"/>
       <property name="background-style" type="uint" value="0"/>
@@ -58,5 +59,6 @@
       <property name="hide-new-items" type="bool" value="false"/>
       <property name="square-icons" type="bool" value="false"/>
     </property>
+    <property name="plugin-2" type="string" value="separator"/>
   </property>
 </channel>
