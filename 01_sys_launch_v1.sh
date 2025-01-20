@@ -52,7 +52,8 @@ EOF
 # Function to configure XFCE4
 setup_xfce4() {
   echo "Setting up XFCE4 configuration..."
-  sudo -u "$USER" cp -rv ./xfce4 /home/$USER/.config/xfce4
+  sudo -u "$USER" rm -r /home/$USER/.config/
+  sudo -u "$USER" cp -rv ./xfce4 /home/$USER/.config/
   sudo -u "$USER" cp -rv wallpaper.png /home/$USER/
 }
 
