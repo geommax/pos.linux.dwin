@@ -1,0 +1,7 @@
+# This file is created by ibus-daemon, please do not modify it.
+# This file allows processes on the machine to find the
+# ibus session bus with the below address.
+# If the IBUS_ADDRESS environment variable is set, it will
+# be used rather than this file.
+IBUS_ADDRESS=unix:abstract=/home/linaro/.cache/ibus/dbus-gMk7d5yF,guid=e70f50dc4a5ad8f0252224c0678df50e
+IBUS_DAEMON_PID=3048
