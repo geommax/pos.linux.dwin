@@ -5,6 +5,8 @@
 # 1. Change China to Eng LANG
 # 2. Change Timezone & Open NTP Enabled
 # 3. Add Myanmar Fonts and Keyboard
+# 4. xfce4 configuration
+# 5. kiosk mode.
 
 
 # Exit immediately if a command exits with a non-zero status
@@ -32,34 +34,45 @@ sudo timedatectl set-ntp true
 
 # Update and install necessary packages
 echo "Set up Myanmar language and add as an input language..."
-
-#sudo apt install -y language-pack-my fonts-noto myanmar-keyboard-setup ntp locales
-
-
-# RAW
-
-sudo apt install ibus 
-
-# ibus-m17n fonts-noto-cjk
-
-# Testing 
+sleep 2;
 echo "using this link ( https://packages.debian.org/sid/all/fonts-myanmar/download ) to download .."
 sudo echo "deb http://ftp.de.debian.org/debian sid main " >> /etc/apt/sources.list
 sudo apt update
 sudo apt install fonts-myanmar
 
 
-=-=-=-=-=-=-=-
+#=-=-=-=-=-=-=-
 
 sudo nano /etc/default/keyboard
 
+# KEYBOARD CONFIGURATION FILE
+
+# Consult the keyboard(5) manual page.
+
 XKBMODEL="pc105"
-XKBLAYOUT="us,my"
-XKBVARIANT=""
-XKBOPTIONS="grp:alt_shift_toggle"
+XKBLAYOUT="us,mm"
+XKBVARIANT=","
+XKBOPTIONS="grp:alt_shift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll"
 BACKSPACE="guess"
+
+echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
+echo "enter ko pae press twar par !.."
+echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
+sleep 3;
 
 sudo dpkg-reconfigure keyboard-configuration
 sudo systemctl restart keyboard-setup
+sudo systemctl status keyboard-setup
+
+#=-=-=-=-=-=-=-
+
+echo "Setting up xfce4."
+cp -rv ./xfce4 $HOME/.config/xfce4
+cp -rv wallpaper.png $HOME/
+
+echo "Reboot Required (y/n)"
+
+
+
 
 
