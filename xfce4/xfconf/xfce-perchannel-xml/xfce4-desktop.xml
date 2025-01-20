@@ -61,7 +61,7 @@
     </property>
   </property>
   <property name="desktop-icons" type="empty">
-    <property name="single-click" type="bool" value="true"/>
+    <property name="single-click" type="bool" value="false"/>
     <property name="file-icons" type="empty">
       <property name="show-removable" type="bool" value="false"/>
       <property name="show-trash" type="bool" value="false"/>
@@ -69,7 +69,7 @@
       <property name="show-home" type="bool" value="false"/>
     </property>
     <property name="show-thumbnails" type="bool" value="false"/>
-    <property name="show-tooltips" type="bool" value="true"/>
+    <property name="show-tooltips" type="bool" value="false"/>
     <property name="icon-size" type="uint" value="46"/>
     <property name="use-custom-font-size" type="bool" value="false"/>
   </property>
