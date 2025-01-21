@@ -5,7 +5,7 @@ set -e
 
 # Variables
 USER="linaro"
-KIOSK_URL="https://youtube.com"
+KIOSK_URL="https://frontend.local"
 AUTOSTART_DIR="/home/$USER/.config/autostart"
 TOUCHSCREEN_FLAGS="--touch-events=enabled --overscroll-history-navigation=enabled --force-device-scale-factor=1"
 TIMEZONE="Asia/Yangon"
