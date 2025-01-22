@@ -17,6 +17,8 @@ set_system_language() {
   echo 'LC_ALL=en_US.UTF-8' | sudo tee -a /etc/default/locale > /dev/null
   echo 'LANGUAGE=en_US.UTF-8' | sudo tee -a /etc/default/locale > /dev/null
   sudo locale-gen
+  sudo dpkg-reconfigure locales
+  sudo localedef -i en_US -f UTF-8 en_US.UTF-8
   echo "System Language is changed ! "
   echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 }
