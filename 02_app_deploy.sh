@@ -1,11 +1,14 @@
 #!/bin/bash
 
+clear
+echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 echo "Deployment script started..."
+echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 ENTRY1="127.0.0.1       frontend.local"
 ENTRY2="127.0.0.1       backend.local"
 
-echo "mariadb install, apache2, php8.4"
-
+echo "Installation of mariadb install, apache2, php8.4"
+echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 sudo apt-get update
 sudo apt-get -y install apt-transport-https lsb-release ca-certificates curl
 sudo curl -sSLo /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
@@ -17,10 +20,24 @@ echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 sudo apt install php8.4 mariadb-server apache2 -y
 sudo apt install  php8.4-fpm php8.4-mysql php8.4-curl php8.4-xml php8.4-mbstring php8.4-zip php8.4-bcmath php8.4-intl php8.4-soap php8.4-tokenizer  php8.4-opcache php8.4-readline php8.4-common -y
 clear
-#cann't install php
+dpkg -l | grep php8.4
+sudo apt install python3.13
+sudo apt install php8.4-gd 
+dpkg -l | grep php8.4
+sleep 2
+#=-=-=-=-=
+#cann't install php8.4-json
 #=-=-=-=
-#php8.4-json php8.4-gd 
+#php8.4-json Package php8.4-json is a virtual package provided by:
+#  php8.4-phpdbg 8.4.3-1
+#  php8.4-fpm 8.4.3-1
+#  php8.4-cli 8.4.3-1
+#  php8.4-cgi 8.4.3-1
+#  libphp8.4-embed 8.4.3-1
+#  libapache2-mod-php8.4 8.4.3-1
+#You should explicitly select one to install.
 #=-=-=-
+clear
 sudo systemctl status apache2
 echo "Enabling apache2....."
 sudo systemctl enable apache2
@@ -67,6 +84,10 @@ sudo chmod -R 755 /var/www/html/frontend
 ls -l /var/www/html/{frontend,backend}
 sleep 2 
 clear
+echo "Linking Storage for Photo !.."
+sudo ln -s /var/www/html/backend/storage/app/public /var/www/html/backend/public/storage
+ls -l /var/www/html/backend/public/
+clear
 
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 echo "Configuring Web Servers"
@@ -76,20 +97,17 @@ cd $HOME/pos.linux.dwin
 sudo cp -rv apache2_sites-availiable/*.conf /etc/apache2/sites-available/
 ls -l /etc/apache2/sites-available/
 cat /etc/apache2/sites-available/{frontend.conf,backend.conf}
-clear
-echo "Linking Storage for Photo !.."
-sudo ln -s /var/www/html/backend/storage/app/public /var/www/html/backend/public/storage
-ls -l /var/www/html/backend/public/
+
 echo "About to restarting related service and enabling apache2 and php modules !.."
 sleep 2
 clear
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 echo "Configuring php8 Servers"
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
-sudo a2enmod php8.4
-sudo a2dismod mpm_event
-sudo a2dismod php8.4 
-sudo a2enmod php8.4 
+#sudo a2enmod php8.4
+#sudo a2dismod mpm_event
+#sudo a2dismod php8.4 
+#sudo a2enmod php8.4 
 sudo systemctl restart apache2
 sudo systemctl status apache2
 sudo systemctl status php8.4-fpm.service
@@ -158,6 +176,39 @@ clear
 #> socket://192.168.123.100:9100 နဲ့ cofigure လုပ်တာ အဆင်ပြေပါတယ်။ 
 # Test Print 
 
+# Debug on module 
+
+sudo a2ensite frontend.conf
+sudo a2ensite backend.conf
+
+sudo a2dissite frontend.conf
+sudo a2dissite backend.conf
+
+sudo a2enmod php8.4-fpm 
+sudo a2enmod mpm_event
+
+sudo a2dismod mpm_event
+sudo a2dismod php8.4-fpm 
+
+
+sudo systemctl reload apache2
+sudo systemctl restart apache2
+sudo systemctl status apache2
+
+sudo systemctl status php8.4-fpm.service
+sudo systemctl start php8.4-fpm.service
+
+sudo a2enmod proxy_fcgi setenvif
+sudo a2enconf php8.4-fpm
+
+sudo a2disconf php8.4-fpm
+
+sudo a2enmod rewrite
+sudo a2dismod rewrite
+
+#To enable PHP 8.4 FPM in Apache2 do:
+#NOTICE: a2enmod proxy_fcgi setenvif
+#NOTICE: a2enconf php8.4-fpm
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 # network

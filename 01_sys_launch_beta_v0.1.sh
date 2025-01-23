@@ -119,7 +119,7 @@ main() {
   setup_xfce4
   setup_kiosk_mode
   echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-  echo " Right Click Function ko close par !.."
+  echo " ERR: Right Click Function ko close par !.."
   echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
   echo "Setup is complete! Reboot the system to apply changes. (y/n)"
   read -r REBOOT
