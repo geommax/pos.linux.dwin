@@ -2,7 +2,7 @@
 
 KIOSK_URL="http://frontend.local"
 AUTOSTART_DIR="/home/$USER/.config/autostart"
-TOUCHSCREEN_FLAGS="--touch-events=enabled --overscroll-history-navigation=enabled --force-device-scale-factor=0.75"
+TOUCHSCREEN_FLAGS="--touch-events=enabled --overscroll-history-navigation=enabled --disable-pinch --force-device-scale-factor=0.75"
 
 # Function to configure XFCE4
 setup_xfce4() {
