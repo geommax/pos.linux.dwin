@@ -5,7 +5,7 @@ set -e
 
 # Variables
 USER="linaro"
-KIOSK_URL="https://frontend.local"
+KIOSK_URL="http://frontend.local"
 AUTOSTART_DIR="/home/$USER/.config/autostart"
 TOUCHSCREEN_FLAGS="--touch-events=enabled --overscroll-history-navigation=enabled --force-device-scale-factor=1"
 TIMEZONE="Asia/Yangon"
@@ -116,8 +116,8 @@ main() {
   set_system_language
   set_timezone
   install_myanmar_fonts_and_keyboard
-  setup_xfce4
-  setup_kiosk_mode
+  #setup_xfce4
+  #setup_kiosk_mode
   echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
   echo " ERR: Right Click Function ko close par !.."
   echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
