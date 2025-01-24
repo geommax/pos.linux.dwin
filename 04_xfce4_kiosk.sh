@@ -7,8 +7,9 @@ TOUCHSCREEN_FLAGS="--touch-events=enabled --overscroll-history-navigation=enable
 # Function to configure XFCE4
 setup_xfce4() {
   echo "Setting up XFCE4 configuration..."
+  cd $HOME/pos.linux.dwin/
   sudo -u "$USER" rm -r /home/$USER/.config/xfce4
-  sudo -u "$USER" cp -rv ./xfce4 /home/$USER/.config/
+  sudo -u "$USER" cp -rv xfce4 /home/$USER/.config/
   sudo -u "$USER" cp -rv wallpaper.png /home/$USER/
   echo "XFCE4 is finished successfully !..."
   echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
