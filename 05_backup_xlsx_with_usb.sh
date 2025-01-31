@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# Define allowed USB IDs (Replace with your USB's actual ID)
-ALLOWED_USB_ID="6014-4768"
+# Allowed USB Serial Number
+USB_SERIAL="0721341F8E98BB06"
 
-# Define mount point
+# Mount point
 MOUNT_POINT="$HOME/report_backup"
 
-# Define source and destination
+# Source directory
 SOURCE_DIR="$HOME/Downloads"
 EXTENSIONS=("xlsx" "csv" "backup")
+USB_DEVICE="sdb1"
 
 # Function to flash red screen
 flash_red_screen() {
@@ -20,32 +21,25 @@ flash_red_screen() {
     done
 }
 
-# Detect USB device
-USB_ID=$(lsblk -o NAME,UUID | grep -i sd | awk '{print $2}' | grep -i "$ALLOWED_USB_ID")
-
-if [[ -z "$USB_ID" ]]; then
-    echo "No allowed USB detected!"
+# Detect USB by serial number
+if ! lsusb -v 2>/dev/null | grep  "$USB_SERIAL"; then
+    echo "Allowed USB not found!"
     exit 1
 fi
 
-# Create mount point if not exists
 mkdir -p "$MOUNT_POINT"
-
-# Mount the USB
-sudo mount /dev/disk/by-uuid/"$USB_ID" "$MOUNT_POINT"
+sudo mount "/dev/$USB_DEVICE" "$MOUNT_POINT"
 
 if [[ $? -ne 0 ]]; then
     echo "Failed to mount USB!"
     exit 1
 fi
 
-# Remove pre-existing files in USB mount point
-echo "Checking for existing files in USB mount point..."
+# Remove existing backup files in USB
+echo "Removing old backup files in USB..."
 for ext in "${EXTENSIONS[@]}"; do
     find "$MOUNT_POINT" -type f -name "*.$ext" -exec rm -f {} \;
 done
-
-echo "Old files deleted from USB."
 
 # Copy files and verify
 COPY_SUCCESS=true
@@ -68,18 +62,18 @@ for ext in "${EXTENSIONS[@]}"; do
     done
 done
 
-# Only delete originals if all copies succeeded
+# Delete originals only if all copies succeeded
 if $COPY_SUCCESS; then
     echo "All files copied successfully, deleting originals..."
     for ext in "${EXTENSIONS[@]}"; do
         rm -f "$SOURCE_DIR"/*.$ext
     done
 else
-    echo "Copy verification failed! Original files are not deleted."
+    echo "Copy verification failed! Keeping original files."
     flash_red_screen
 fi
 
-# Sync to ensure all changes are written
+# Sync to ensure all writes are completed
 sync
 
 # Unmount USB
@@ -88,4 +82,4 @@ sudo umount "$MOUNT_POINT"
 # Flash red screen as an alert
 flash_red_screen
 
-echo "Process completed!"
+echo "Backup process completed!"
