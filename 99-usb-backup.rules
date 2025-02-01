@@ -1,0 +1,2 @@
+SUBSYSTEM=="usb", ATTR{idVendor}=="13fe", ATTR{idProduct}=="6700", ATTR{serial}=="0721341F8E98BB06", RUN+="/usr/bin/sudo -u linaro /usr/local/bin/0x1_backup_xlsx_with_usb"
+
