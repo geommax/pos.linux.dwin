@@ -35,6 +35,7 @@ echo "Entering Next Steps..."
 sleep 2;
 clear
 
+#--------------------------------------------------------------------
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 echo "2. Copying Web & API Packages to /var/www/html/"
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
@@ -53,7 +54,7 @@ sudo rm -rf /var/www/html/{frontend,backend}
 sudo cp -rv Web\ Pos\ API /var/www/html/backend
 sudo chmod 755 /var/www/html/backend -R 
 sudo chown -R www-data:www-data /var/www/html/backend
-ls -l /var/www/html/{frontend,backend}
+ls -la /var/www/html/{frontend,backend}
 sleep 2
 clear
 #sudo mkdir -v /var/www/html/frontend
@@ -68,7 +69,7 @@ echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 sudo ln -s /var/www/html/backend/storage/app/public /var/www/html/backend/public/storage
 ls -l /var/www/html/backend/public/
 clear
-
+#-----------------------------------------------------------------------------
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 echo "3. Configuring Web Servers"
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
@@ -107,8 +108,10 @@ cd $HOME/pos.linux.dwin
 #sudo mysql_secure_installation
 echo "Finished mysql setup please try to login : "
 sudo mysql -u root -p
+#-------------------------------------------------------------------------
 mysql -u TZH -p db_web_pos < $HOME/pos.linux.dwin/application/db_web_pos.sql
 echo "Please check the database is correctly restored or not !"
+#----------------------------------------------------------------------------
 mysql -u TZH -p 
 echo "-=-=-=-=-=-=-==-=-=-==-=-"
 echo "Beyond Deployment......"

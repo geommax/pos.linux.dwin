@@ -1,1 +1,1 @@
-ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[b-z][0-9]", ATTRS{idVendor}=="13fe", ATTRS{idProduct}=="6700", ATTRS{serial}=="0721341F8E98BB06", ENV{UDISKS_IGNORE}="1", RUN+="/usr/local/bin/RAW.sh"
+ACTION=="add", SUBSYSTEM=="block", ATTRS{idVendor}=="13fe", ATTRS{idProduct}=="6700", ATTRS{serial}=="0721341F8E98BB06", ENV{UDISKS_IGNORE}="1", KERNEL=="sd[b-z][0-9]", OWNER="bot", GROUP="bot", MODE="0660", RUN+="/home/bot/pos.linux.dwin/RAW.SH"
