@@ -1,0 +1,1 @@
+ACTION=="add|change", SUBSYSTEM=="block", ATTRS{idVendor}=="13fe", ATTRS{idProduct}=="6700", ATTRS{serial}=="0721341F8E98BB06", ENV{UDISKS_IGNORE}="1", RUN+="/usr/local/bin/RAW.sh"
