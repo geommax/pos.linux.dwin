@@ -24,7 +24,7 @@ setup_kiosk_mode() {
 [Desktop Entry]
 Type=Application
 Name=Chromium Kiosk
-Exec=chromium --kiosk $KIOSK_URL --noerrdialogs --disable-infobars --disable-session-crashed-bubble $TOUCHSCREEN_FLAGS
+Exec=chromium --kiosk $KIOSK_URL --incognito --noerrdialogs --disable-infobars --disable-session-crashed-bubble $TOUCHSCREEN_FLAGS
 X-GNOME-Autostart-enabled=true
 EOF
 
