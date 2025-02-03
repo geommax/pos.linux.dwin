@@ -4,11 +4,14 @@
 #   idProduct          0x6700 
 
 ## Maintained By Geommax.
-
+#################### Debug Command #######################################
+##
 ##     ~/$    lsusb -v 2>/dev/null
 ##     ~/$    udevadm monitor --property --udev
 ##     ~/$    sudo udevadm control --reload-rules && sudo udevadm trigger
-
+##     ~/$    journalctl -u systemd-udevd -f
+##
+#################### Debug Command #######################################
 
 
 # Bus 002 Device 003: ID 13fe:6700 Kingston Technology Company Inc. USB DISK 3.0
