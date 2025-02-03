@@ -1,0 +1,3 @@
+[Socket]
+ListenStream=/tmp/copy_trigger.sock
+SocketMode=0666

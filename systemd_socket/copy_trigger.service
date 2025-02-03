@@ -1,0 +1,8 @@
+[Unit]
+Description=Run script when data is received on /tmp/copy_trigger.sock
+Requires=copy_trigger.socket
+
+[Service]
+ExecStart=/usr/local/bin/copy_trigger_server.sh
+StandardInput=socket
+Environment=SYSTEMD_LOG_LEVEL=debug
