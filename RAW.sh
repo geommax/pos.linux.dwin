@@ -1,34 +1,28 @@
 #!/bin/bash
 
-MOUNT_POINT="/home/bot/report_generate/"
 LOG_FILE="/home/bot/usb_debug.log"
-
-
+SOURCE_DIR="$HOME/Downloads/*"
 SEARCH_DEV_NAME=$(/usr/bin/lsblk -rpo "NAME,UUID,VENDOR,MODEL,SERIAL" | /usr/bin/grep "0721341F8E98BB06" | /usr/bin/awk '{print $1}')
-echo "$(date) - Found device: $SEARCH_DEV_NAME" >> "$LOG_FILE"
-DEV_NAME="${SEARCH_DEV_NAME}1"
 
-echo "$(date) - Trying to mount: $DEV_NAME" >> "$LOG_FILE"
-/usr/bin/mkdir -p "$MOUNT_POINT"
-sleep 3
+echo "$(date) - Found New USB device: $SEARCH_DEV_NAME" >> "$LOG_FILE"
+DEV_NAME="${SEARCH_DEV_NAME}1" # partition ကိုယူချင်လို့ 1 ပေါင်းထားပေးတာဖြစ်တယ်။
 
-echo "$(date) - Triggering mount..." >> "$LOG_FILE"
-sudo mount "$DEV_NAME" "$MOUNT_POINT"
-
-# /usr/bin/udisksctl mount --block-device "$DEV_NAME" --no-user-interaction >> "$LOG_FILE" 2>&1
-
+echo "$(date) - Triggering Copy..." >> "$LOG_FILE"
+echo "$(date) - Waiting 3 sec to be ready for automounting.." >> "$LOG_FILE"
+sleep 3;
 MOUNTED_PATH=$(lsblk -rpo "NAME,MOUNTPOINT" | grep "$DEV_NAME" | awk '{print $2}')
-echo "Mounted at: $MOUNTED_PATH" >> "$LOG_FILE"
-# echo "$(date) - waiting 5 sec to be ready" >> "$LOG_FILE"
-# sleep 2
-# echo "$(date) - Umounting: $MOUNTED_PATH" >> "$LOG_FILE"
-# sudo umount $MOUNTED_PATH
+echo "USB is mounted at: $MOUNTED_PATH" >> "$LOG_FILE"  # mount ထားတာမရှိရင် mount ပေးရမယ်။ (ဆက်ရေးရန်။)
+## ပြဿနာမှာ usb မ mount ခင်မှာ script ကိုအရင်  run တာဖြစ်ပြီး script run ပြီးမှသာ automount ကိစ္စကိုဆက်လုပ်ပေးမှာပါ။
 
+# ဒီအတွက် ကြောင့် copy ကူးဖို့ Mounted လုပ်ပြီးသား path ကိုမတွေ့နေတာပဲဖြစ်ပါတယ်။
 if [ -n "$MOUNTED_PATH" ]; then
-    sudo mount "$MOUNTED_PATH" "$MOUNT_POINT"
-    echo "$(date) - Successfully mounted to $MOUNT_POINT" >> "$LOG_FILE"
+    sudo cp -rv "$SOURCE_DIR" "$MOUNTED_PATH" >> "$LOG_FILE"
+    sync
+    echo "$(date) - Successfully copied to $MOUNTED_PATH" >> "$LOG_FILE"
+    echo "$(date) - =======================================" >> "$LOG_FILE"
 else
-    echo "$(date) - Error: Device mounted but mount path not found!" >> "$LOG_FILE"
+    echo "$(date) - Error: Copying reports" >> "$LOG_FILE"
+    echo "$(date) - =======================================" >> "$LOG_FILE"
     exit 1
 fi
 exit 0
