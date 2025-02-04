@@ -1,10 +1,12 @@
-
 #!/bin/bash
+LOG_FILE="/home/bot/usb_debug.log"
 
-# Ensure the DBUS_SESSION_BUS_ADDRESS is set up for sudo
-export DBUS_SESSION_BUS_ADDRESS=$(echo $DBUS_SESSION_BUS_ADDRESS)
+echo "$(date) - Found RAW.sh" >> "$LOG_FILE"
+# Path to the Unix socket
+SOCKET_PATH="/tmp/copy_trigger.sock"
 
-# Run dbus-send with sudo and the session environment variable
-sudo DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS dbus-send --session --print-reply --dest=com.example.UsbSignal /com/example/UsbSignal com.example.UsbSignal.USBReady
+# Send a signal to the socket
+echo "trigger" | socat - UNIX-CONNECT:"$SOCKET_PATH" 
+
 
 exit 0
