@@ -36,6 +36,8 @@ sleep 2;
 clear
 
 #--------------------------------------------------------------------
+## API , Web Version release အသစ်ချိန်းချင်တယ်ဆိုရင် ဒီ အဆင့်များကိုလုပ်ဆောင်ပါ။
+#--------------------------------------------------------------------
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 echo "2. Copying Web & API Packages to /var/www/html/"
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
@@ -70,6 +72,7 @@ sudo ln -s /var/www/html/backend/storage/app/public /var/www/html/backend/public
 ls -l /var/www/html/backend/public/
 clear
 #-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 echo "3. Configuring Web Servers"
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
@@ -86,6 +89,9 @@ sudo systemctl reload apache2
 sleep 2
 clear
 
+#-----------------------------------------------------------------------------
+# Database Server Setup
+#-----------------------------------------------------------------------------
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 echo "4. Configuring mariadb-server & Restoring Database SQL ! "
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
@@ -109,6 +115,8 @@ cd $HOME/pos.linux.dwin
 echo "Finished mysql setup please try to login : "
 sudo mysql -u root -p
 #-------------------------------------------------------------------------
+# Database Restore
+#-----------------------------------------------------------------------------
 mysql -u TZH -p db_web_pos < $HOME/pos.linux.dwin/application/db_web_pos.sql
 echo "Please check the database is correctly restored or not !"
 #----------------------------------------------------------------------------
