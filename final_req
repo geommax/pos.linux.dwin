@@ -1,0 +1,26 @@
+clear btn 
+
+Sale မှာ Menu bar ဖြုတ် (back to dashboard )
+
+payment select မှတ်ပြီးမှ checkout လုပ်ရန်။ 
+
+Expense ထဲက နုတ်ရန်။ 
+
+stock return 
+
+Currency >> Input box 
+
+>
+NODE JS Version 20
+
+npm run dev
+
+npm run build 
+
+dist ဆိုတဲ့ folder ထွက်လာမယ်။ အာ့ကောင်က frontend server အတွက် UI ပဲ။ 
+
+> 
+
+
+အဝိုင်းလည် state Casher
+
