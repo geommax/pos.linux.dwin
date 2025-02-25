@@ -13,6 +13,7 @@ sudo chmod +x /usr/local/bin/copy_trigger_server*
 sudo systemctl daemon-reload 
 sudo systemctl start copy_trigger.socket
 sudo systemctl start copy_trigger.service
+sudo systemctl enable copy_trigger.service
 sudo systemctl status copy_trigger.socket
 sudo systemctl status copy_trigger.service
 

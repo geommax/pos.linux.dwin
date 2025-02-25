@@ -10,9 +10,11 @@ sleep 5;
 echo "$(date) : Prepare to copy from ~/Download/* to USB Mounted Dir. " >> "$LOG_FILE"
 
 # Find where sdb1, sdc1, or sdd1 are mounted
-MOUNTED_POINT=$(findmnt -rn -S /dev/sdb1 -o TARGET 2>/dev/null || \
+MOUNTED_POINT=$(findmnt -rn -S /dev/sda1 -o TARGET 2>/dev/null || \
+                findmnt -rn -S /dev/sdb1 -o TARGET 2>/dev/null || \
                 findmnt -rn -S /dev/sdc1 -o TARGET 2>/dev/null || \
                 findmnt -rn -S /dev/sdd1 -o TARGET 2>/dev/null || \
+                findmnt -rn -S /dev/sda -o TARGET 2>/dev/null || \
                 findmnt -rn -S /dev/sdb -o TARGET 2>/dev/null || \
                 findmnt -rn -S /dev/sdc -o TARGET 2>/dev/null || \
                 findmnt -rn -S /dev/sdd -o TARGET 2>/dev/null)
