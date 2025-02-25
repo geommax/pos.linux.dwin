@@ -1,6 +1,6 @@
 #!/bin/bash
-LOG_FILE="/home/bot/usb_debug.log"
-SOURCE_DIR="/home/bot/Downloads/*"
+LOG_FILE="/home/linaro/usb_debug.log"
+SOURCE_DIR="/home/linaro/Downloads/*"
 # all extensions must be provided.
 #EXTENSIONS=("xlsx" "csv" "backup")
 
