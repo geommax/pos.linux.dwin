@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[b-z]", RUN+="/usr/local/bin/send_copy_trigger_signal.sh"

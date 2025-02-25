@@ -4,6 +4,6 @@
 
 1. solution - using firewall
 
-
+2. stop service if ssh is not connected within 1 sec
 ### 
 

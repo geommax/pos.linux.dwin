@@ -1,4 +1,7 @@
 #### UnixSocket
+```bash
+sudo apt install socat
+```
 
 ```bash
 socat UNIX-LISTEN:/tmp/copy_trigger.sock,fork -
