@@ -1,48 +1,61 @@
 #!/bin/bash
+
 LOG_FILE="/home/linaro/usb_debug.log"
 SOURCE_DIR="/home/linaro/Downloads/*"
-# all extensions must be provided.
-#EXTENSIONS=("xlsx" "csv" "backup")
+MOUNT_BASE="/media"
+TARGET_SERIAL="5270601000150688271"  
 
-echo "$(date) : Signal received! Running copy_trigger_server ..." >> "$LOG_FILE"
-echo "................................." >> "$LOG_FILE"
-sleep 5;
-echo "$(date) : Prepare to copy from ~/Download/* to USB Mounted Dir. " >> "$LOG_FILE"
+echo "$(date) : USB Mount and Copy Started" | tee -a "$LOG_FILE"
 
-# Find where sdb1, sdc1, or sdd1 are mounted
-MOUNTED_POINT=$(findmnt -rn -S /dev/sda1 -o TARGET 2>/dev/null || \
-                findmnt -rn -S /dev/sdb1 -o TARGET 2>/dev/null || \
-                findmnt -rn -S /dev/sdc1 -o TARGET 2>/dev/null || \
-                findmnt -rn -S /dev/sdd1 -o TARGET 2>/dev/null || \
-                findmnt -rn -S /dev/sda -o TARGET 2>/dev/null || \
-                findmnt -rn -S /dev/sdb -o TARGET 2>/dev/null || \
-                findmnt -rn -S /dev/sdc -o TARGET 2>/dev/null || \
-                findmnt -rn -S /dev/sdd -o TARGET 2>/dev/null)
+for DEV in /dev/sd[a-d]; do
+    if [ -b "$DEV" ]; then  
+        MOUNT_POINT="${MOUNT_BASE}/$(basename $DEV)"  
+        echo "[$(date)] Found device: $DEV" | tee -a "$LOG_FILE"
 
-if [ -n "$MOUNTED_POINT" ]; then
-    echo "====================== Prepare Mounted Point ==============" >> "$LOG_FILE"
-    echo "Mounted at: $MOUNTED_POINT" &>> "$LOG_FILE"
-    echo "Removing \x20 for space in : $MOUNTED_POINT" &>> "$LOG_FILE"
-    MOUNTED_POINT=$(printf '%b' "$MOUNTED_POINT") 
-    #MOUNTED_POINT=$(echo "$MOUNTED_POINT" | sed 's/\\x20/\\ /g')
-    echo "After removing \x20, The mounted point is : $MOUNTED_POINT" &>> "$LOG_FILE"
-    echo "====================== Mounted Point is already Prepared ==============" >> "$LOG_FILE"
-    sudo ls -l "$MOUNTED_POINT/" &>> "$LOG_FILE"
-    sudo ls -l $SOURCE_DIR &>> "$LOG_FILE"
-    sudo cp -rv $SOURCE_DIR "$MOUNTED_POINT/" &>> "$$LOG_FILE"
-    sudo sync "$MOUNTED_POINT/" &>> "$LOG_FILE"
-    echo "$(date) - =======================================" >> "$LOG_FILE"
-    echo "$(date) - Successfully copied to '$MOUNTED_POINT'" >> "$LOG_FILE"
-    exit 0
-else
-    echo "Device is not mounted." >> "$LOG_FILE"
-    echo "$(date) - Error: Copying reports" >> "$LOG_FILE"
-    echo "$(date) - =======================================" >> "$LOG_FILE"
-    exit 1
-
-fi
+        USB_SERIAL=$(udevadm info --query=property --name=$DEV | grep ID_SERIAL_SHORT= | cut -d= -f2)
+        echo "[$(date)] Detected USB Serial Number: $USB_SERIAL" | tee -a "$LOG_FILE"
 
 
+        if [ "$USB_SERIAL" != "$TARGET_SERIAL" ]; then
+            echo "[$(date)] Serial number does not match. Skipping device." | tee -a "$LOG_FILE"
+            continue 
+        fi
+
+        PARTITION=$(lsblk -l -n -o NAME | grep "^$(basename $DEV)[0-9]$" | head -n 1)
+
+        if [ -n "$PARTITION" ]; then
+            DEVICE="/dev/$PARTITION"  
+            echo "[$(date)] Found partition: $DEVICE" | tee -a "$LOG_FILE"
+        else
+            DEVICE="$DEV"  
+            echo "[$(date)] No partition found, using full device: $DEVICE" | tee -a "$LOG_FILE"
+        fi
 
 
+        if [ ! -d "$MOUNT_POINT" ]; then
+            sudo mkdir -p "$MOUNT_POINT"
+            echo "[$(date)] Created mount point: $MOUNT_POINT" | tee -a "$LOG_FILE"
+        fi
 
+
+        sudo mount "$DEVICE" "$MOUNT_POINT" 2>> "$LOG_FILE"
+        if [ $? -eq 0 ]; then
+            echo "[$(date)] Mounted $DEVICE to $MOUNT_POINT" | tee -a "$LOG_FILE"
+            
+
+            echo "[$(date)] Copying files from ~/Downloads/ to $MOUNT_POINT" | tee -a "$LOG_FILE"
+            sudo cp -rv $SOURCE_DIR "$MOUNT_POINT/" | tee -a "$LOG_FILE"
+            sudo sync "$MOUNT_POINT/" | tee -a "$LOG_FILE"
+
+            echo "[$(date)] Successfully copied files to $MOUNT_POINT" | tee -a "$LOG_FILE"
+        else
+            echo "[$(date)] Failed to mount $DEVICE" | tee -a "$LOG_FILE"
+        fi
+
+        sudo umount "$MOUNT_POINT"
+        echo "[$(date)] Unmounted $MOUNT_POINT" | tee -a "$LOG_FILE"
+    fi
+done
+
+echo "$(date) : USB Mount and Copy Finished" | tee -a "$LOG_FILE"
+exit 0

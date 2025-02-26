@@ -1,5 +1,5 @@
 #!/bin/bash
-LOG_FILE="/home/bot/usb_debug.log"
+LOG_FILE="/home/linaro/usb_debug.log"
 
 echo "$(date) - Received from udev rules...." >> "$LOG_FILE"
 # Path to the Unix socket
