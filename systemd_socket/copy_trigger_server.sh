@@ -4,6 +4,11 @@ LOG_FILE="/home/linaro/usb_debug.log"
 SOURCE_DIR="/home/linaro/Downloads/*"
 MOUNT_BASE="/media"
 TARGET_SERIAL="5270601000150688271"  # Set your expected USB serial number here
+DB_NAME="db_web_pos"  # Replace with your database name
+DB_USER="TZH"  # Replace with your MySQL user
+DB_PASSWORD="password"  # Replace with your MySQL password
+DATE_TIME=$(date +"%Y-%m-%d_%H-%M-%S")  # Generate timestamp
+DB_DUMP_FILE="/home/linaro/Downloads/db_backup_${DATE_TIME}.sql"
 
 # Ensure log file exists
 sudo touch "$LOG_FILE"
@@ -11,7 +16,19 @@ sudo chmod 666 "$LOG_FILE"
 
 echo "$(date) : USB Mount, Copy, and Cleanup Started" | tee -a "$LOG_FILE"
 
-# Loop through devices sda to sdd
+# Step 1: Dump the MySQL database
+echo "[$(date)] Starting MySQL dump for database: $DB_NAME" | tee -a "$LOG_FILE"
+
+mysqldump -u"$DB_USER" -p"$DB_PASSWORD" --databases "$DB_NAME" > "$DB_DUMP_FILE" 2>> "$LOG_FILE"
+
+if [ $? -eq 0 ]; then
+    echo "[$(date)] MySQL dump successful: $DB_DUMP_FILE" | tee -a "$LOG_FILE"
+else
+    echo "[$(date)] MySQL dump failed!" | tee -a "$LOG_FILE"
+    exit 1
+fi
+
+# Step 2: Detect USB and Mount
 for DEV in /dev/sd[a-d]; do
     if [ -b "$DEV" ]; then  
         MOUNT_POINT="${MOUNT_BASE}/$(basename $DEV)"  # Example: /media/sda
