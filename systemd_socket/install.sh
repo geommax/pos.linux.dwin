@@ -18,3 +18,8 @@ sudo systemctl status copy_trigger.socket
 sudo systemctl status copy_trigger.service
 
 
+echo "security checking............" 
+sudo chmod +x /usr/local/bin/monitor_sshd.sh
+
+
+
